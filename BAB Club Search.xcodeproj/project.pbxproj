@@ -15,6 +15,12 @@
 		4A5C168624AF84EA006C7564 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165B24AF84E7006C7564 /* ContentView.swift */; };
 		4A5C168724AF84EA006C7564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C165C24AF84EA006C7564 /* Assets.xcassets */; };
 		4A5C168824AF84EA006C7564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C165C24AF84EA006C7564 /* Assets.xcassets */; };
+		4A5C169824AF8845006C7564 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Clubs.swift */; };
+		4A5C169924AF8845006C7564 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Clubs.swift */; };
+		4A5C169B24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
+		4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
+		4A5C169E24AF9CAE006C7564 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169D24AF9CAE006C7564 /* MapView.swift */; };
+		4A5C169F24AF9CAE006C7564 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169D24AF9CAE006C7564 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +44,9 @@
 		4A5C165A24AF84E7006C7564 /* BAB_Club_DearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAB_Club_DearchApp.swift; sourceTree = "<group>"; };
 		4A5C165B24AF84E7006C7564 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A5C165C24AF84EA006C7564 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4A5C166124AF84EA006C7564 /* BAB Club Dearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BAB Club Dearch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5C166124AF84EA006C7564 /* BAB Club Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BAB Club Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5C166424AF84EA006C7564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A5C166924AF84EA006C7564 /* BAB Club Dearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BAB Club Dearch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5C166924AF84EA006C7564 /* BAB Club Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BAB Club Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5C166B24AF84EA006C7564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A5C166C24AF84EA006C7564 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		4A5C167124AF84EA006C7564 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +55,9 @@
 		4A5C167C24AF84EA006C7564 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5C168024AF84EA006C7564 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		4A5C168224AF84EA006C7564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5C169724AF8845006C7564 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
+		4A5C169A24AF99F9006C7564 /* ClubLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocation.swift; sourceTree = "<group>"; };
+		4A5C169D24AF9CAE006C7564 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +109,10 @@
 			children = (
 				4A5C165A24AF84E7006C7564 /* BAB_Club_DearchApp.swift */,
 				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
+				4A5C169A24AF99F9006C7564 /* ClubLocation.swift */,
+				4A5C169D24AF9CAE006C7564 /* MapView.swift */,
 				4A5C165C24AF84EA006C7564 /* Assets.xcassets */,
+				4A5C169724AF8845006C7564 /* Clubs.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -108,8 +120,8 @@
 		4A5C166224AF84EA006C7564 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A5C166124AF84EA006C7564 /* BAB Club Dearch.app */,
-				4A5C166924AF84EA006C7564 /* BAB Club Dearch.app */,
+				4A5C166124AF84EA006C7564 /* BAB Club Search.app */,
+				4A5C166924AF84EA006C7564 /* BAB Club Search.app */,
 				4A5C167124AF84EA006C7564 /* Tests iOS.xctest */,
 				4A5C167C24AF84EA006C7564 /* Tests macOS.xctest */,
 			);
@@ -168,7 +180,7 @@
 			);
 			name = iOS;
 			productName = iOS;
-			productReference = 4A5C166124AF84EA006C7564 /* BAB Club Dearch.app */;
+			productReference = 4A5C166124AF84EA006C7564 /* BAB Club Search.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4A5C166824AF84EA006C7564 /* macOS */ = {
@@ -185,7 +197,7 @@
 			);
 			name = macOS;
 			productName = macOS;
-			productReference = 4A5C166924AF84EA006C7564 /* BAB Club Dearch.app */;
+			productReference = 4A5C166924AF84EA006C7564 /* BAB Club Search.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4A5C167024AF84EA006C7564 /* Tests iOS */ = {
@@ -249,7 +261,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A5C165824AF84E7006C7564 /* Build configuration list for PBXProject "BAB Club Dearch" */;
+			buildConfigurationList = 4A5C165824AF84E7006C7564 /* Build configuration list for PBXProject "BAB Club Search" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -308,8 +320,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5C169B24AF99F9006C7564 /* ClubLocation.swift in Sources */,
 				4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */,
+				4A5C169E24AF9CAE006C7564 /* MapView.swift in Sources */,
 				4A5C168324AF84EA006C7564 /* BAB_Club_DearchApp.swift in Sources */,
+				4A5C169824AF8845006C7564 /* Clubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +332,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */,
 				4A5C168624AF84EA006C7564 /* ContentView.swift in Sources */,
+				4A5C169F24AF9CAE006C7564 /* MapView.swift in Sources */,
 				4A5C168424AF84EA006C7564 /* BAB_Club_DearchApp.swift in Sources */,
+				4A5C169924AF8845006C7564 /* Clubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,7 +497,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Dearch";
-				PRODUCT_NAME = "BAB Club Dearch";
+				PRODUCT_NAME = "BAB Club Search";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,7 +518,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Dearch";
-				PRODUCT_NAME = "BAB Club Dearch";
+				PRODUCT_NAME = "BAB Club Search";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -524,7 +542,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Dearch";
-				PRODUCT_NAME = "BAB Club Dearch";
+				PRODUCT_NAME = "BAB Club Search";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -546,7 +564,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Dearch";
-				PRODUCT_NAME = "BAB Club Dearch";
+				PRODUCT_NAME = "BAB Club Search";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -640,7 +658,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A5C165824AF84E7006C7564 /* Build configuration list for PBXProject "BAB Club Dearch" */ = {
+		4A5C165824AF84E7006C7564 /* Build configuration list for PBXProject "BAB Club Search" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A5C168924AF84EA006C7564 /* Debug */,
