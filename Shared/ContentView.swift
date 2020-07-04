@@ -9,38 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var clubs: [Club] = []
+    @ObservedObject var store: ClubStore
     
     var body: some View {
         NavigationView {
             List{
-                ForEach(clubs) { club in
+                ForEach(store.clubs) { club in
                     ClubCell(club: club)
                 }
                 
                 HStack {
                     Spacer()
-                    Text("\(clubs.count) clubs")
+                    Text("\(store.clubs.count) clubs")
                         .foregroundColor(.secondary)
                 }
                     
             }
             .navigationTitle("Dojos")
+            
+            Text("Choose a Dojo")
+                .font(.largeTitle)
+
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(clubs: testData)
-    }
+    
 }
 
 struct ClubCell: View {
     var club: Club
     
     var body: some View {
-        NavigationLink(destination: Text(club.clubname)) {
+        NavigationLink(destination: ClubLocation(club: club)) {
             VStack(alignment: .leading) {
                 Text(club.clubname)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -50,6 +49,16 @@ struct ClubCell: View {
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ContentView(store: testStore)
+            ContentView(store: testStore)
+                .preferredColorScheme(.dark)
         }
     }
 }

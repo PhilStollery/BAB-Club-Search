@@ -9,18 +9,18 @@
 /* Begin PBXBuildFile section */
 		4A5C167624AF84EA006C7564 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C167524AF84EA006C7564 /* Tests_iOS.swift */; };
 		4A5C168124AF84EA006C7564 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C168024AF84EA006C7564 /* Tests_macOS.swift */; };
-		4A5C168324AF84EA006C7564 /* BAB_Club_DearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165A24AF84E7006C7564 /* BAB_Club_DearchApp.swift */; };
-		4A5C168424AF84EA006C7564 /* BAB_Club_DearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165A24AF84E7006C7564 /* BAB_Club_DearchApp.swift */; };
+		4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */; };
+		4A5C168424AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */; };
 		4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165B24AF84E7006C7564 /* ContentView.swift */; };
 		4A5C168624AF84EA006C7564 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165B24AF84E7006C7564 /* ContentView.swift */; };
 		4A5C168724AF84EA006C7564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C165C24AF84EA006C7564 /* Assets.xcassets */; };
 		4A5C168824AF84EA006C7564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C165C24AF84EA006C7564 /* Assets.xcassets */; };
-		4A5C169824AF8845006C7564 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Clubs.swift */; };
-		4A5C169924AF8845006C7564 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Clubs.swift */; };
+		4A5C169824AF8845006C7564 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Club.swift */; };
+		4A5C169924AF8845006C7564 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Club.swift */; };
 		4A5C169B24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
 		4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
-		4A5C169E24AF9CAE006C7564 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169D24AF9CAE006C7564 /* MapView.swift */; };
-		4A5C169F24AF9CAE006C7564 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169D24AF9CAE006C7564 /* MapView.swift */; };
+		4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
+		4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A5C165A24AF84E7006C7564 /* BAB_Club_DearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAB_Club_DearchApp.swift; sourceTree = "<group>"; };
+		4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAB_Club_SearchApp.swift; sourceTree = "<group>"; };
 		4A5C165B24AF84E7006C7564 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A5C165C24AF84EA006C7564 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A5C166124AF84EA006C7564 /* BAB Club Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BAB Club Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,9 +55,9 @@
 		4A5C167C24AF84EA006C7564 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5C168024AF84EA006C7564 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		4A5C168224AF84EA006C7564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A5C169724AF8845006C7564 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
+		4A5C169724AF8845006C7564 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		4A5C169A24AF99F9006C7564 /* ClubLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocation.swift; sourceTree = "<group>"; };
-		4A5C169D24AF9CAE006C7564 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +107,12 @@
 		4A5C165924AF84E7006C7564 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				4A5C165A24AF84E7006C7564 /* BAB_Club_DearchApp.swift */,
+				4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */,
 				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
 				4A5C169A24AF99F9006C7564 /* ClubLocation.swift */,
-				4A5C169D24AF9CAE006C7564 /* MapView.swift */,
 				4A5C165C24AF84EA006C7564 /* Assets.xcassets */,
-				4A5C169724AF8845006C7564 /* Clubs.swift */,
+				4A5C169724AF8845006C7564 /* Club.swift */,
+				4A9DF81024B078B000AB6EF9 /* ClubStore.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -322,9 +322,9 @@
 			files = (
 				4A5C169B24AF99F9006C7564 /* ClubLocation.swift in Sources */,
 				4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */,
-				4A5C169E24AF9CAE006C7564 /* MapView.swift in Sources */,
-				4A5C168324AF84EA006C7564 /* BAB_Club_DearchApp.swift in Sources */,
-				4A5C169824AF8845006C7564 /* Clubs.swift in Sources */,
+				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
+				4A5C169824AF8845006C7564 /* Club.swift in Sources */,
+				4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,9 +334,9 @@
 			files = (
 				4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */,
 				4A5C168624AF84EA006C7564 /* ContentView.swift in Sources */,
-				4A5C169F24AF9CAE006C7564 /* MapView.swift in Sources */,
-				4A5C168424AF84EA006C7564 /* BAB_Club_DearchApp.swift in Sources */,
-				4A5C169924AF8845006C7564 /* Clubs.swift in Sources */,
+				4A5C168424AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
+				4A5C169924AF8845006C7564 /* Club.swift in Sources */,
+				4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
