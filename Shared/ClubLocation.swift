@@ -15,17 +15,16 @@ struct ClubLocation: View {
     @State private var coordinateRegion: MKCoordinateRegion
     
     init(club: Club) {
-        let getPoisiton = MKCoordinateRegion(center: club.location, latitudinalMeters: 5000, longitudinalMeters: 5000)
+        let getPoisiton = MKCoordinateRegion(center: club.location, latitudinalMeters: 1500, longitudinalMeters: 1500)
         self._coordinateRegion = State(wrappedValue: getPoisiton)
         self.club = club
     }
     
     var body: some View {
         VStack {
-            Map(coordinateRegion: $coordinateRegion)
+            Map(coordinateRegion: $coordinateRegion, annotationItems: [club], annotationContent: { (club) in return MapPin(coordinate: club.location, tint: Color.accentColor) } )
                 .frame(alignment: .center)
-                .cornerRadius(5)
-                .shadow(radius: 4)
+                .shadow(radius: 2)
 
             Text(club.association)
                 .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
@@ -41,7 +40,6 @@ struct ClubLocation: View {
 }
 
 struct ClubLocation_Previews: PreviewProvider {
-    
     static var previews: some View {
         NavigationView {
             ClubLocation(club: testData[2])

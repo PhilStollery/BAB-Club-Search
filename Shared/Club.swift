@@ -12,7 +12,6 @@
 // <marker Id="31" association="KSMBDA Kolesnikov School" clubname="KSMBDA Swindon" clubtown="Swindon" lat="51.546513" lng="-1.773501" c1="6" c2="4" c3="0" ct="0" yp="4" adults="34" family="0" children="0" weapons="0" clubmark="0" distance="0"/>
 
 import Foundation
-import Contacts
 import MapKit
 
 struct Club: Identifiable {

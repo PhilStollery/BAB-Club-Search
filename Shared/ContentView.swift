@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List{
+            List{                
                 ForEach(store.clubs) { club in
                     ClubCell(club: club)
                 }
@@ -29,10 +29,8 @@ struct ContentView: View {
             
             Text("Choose a Dojo")
                 .font(.largeTitle)
-
         }
     }
-    
 }
 
 struct ClubCell: View {
