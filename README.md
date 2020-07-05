@@ -1,3 +1,3 @@
 # BAB-Club-Search
 
-SiwftUI and MapKit Dojo locator for my national Aikido association. Please do comment and look around this is my first Apple App.
+SwiftUI and MapKit Dojo locator for my national Aikido association. Please do comment and look around this is my first Apple App.
