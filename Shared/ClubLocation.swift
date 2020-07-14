@@ -8,8 +8,6 @@
 import SwiftUI
 import MapKit
 
-
-
 struct ClubLocation: View {
     var club: Club
     @State private var coordinateRegion: MKCoordinateRegion

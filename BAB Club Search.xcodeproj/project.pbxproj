@@ -19,10 +19,14 @@
 		4A5C169924AF8845006C7564 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Club.swift */; };
 		4A5C169B24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
 		4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
+		4A88763E24BDCBEB00F331E8 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A88763D24BDCBEB00F331E8 /* clubs.xml */; };
+		4A88763F24BDCBEB00F331E8 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A88763D24BDCBEB00F331E8 /* clubs.xml */; };
+		4A88764124BDD4CF00F331E8 /* AllClubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764024BDD4CF00F331E8 /* AllClubs.swift */; };
+		4A88764224BDD4CF00F331E8 /* AllClubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764024BDD4CF00F331E8 /* AllClubs.swift */; };
+		4A88764424BDE63A00F331E8 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764324BDE63A00F331E8 /* LocationFetcher.swift */; };
+		4A88764524BDE63A00F331E8 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764324BDE63A00F331E8 /* LocationFetcher.swift */; };
 		4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
-		4A9E68F624BCA2E3000EA407 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A9E68F524BCA2E3000EA407 /* clubs.xml */; };
-		4A9E68F724BCA2E3000EA407 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A9E68F524BCA2E3000EA407 /* clubs.xml */; };
 		4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = 4A9E68FC24BCA8FC000EA407 /* AEXML */; };
 		4A9E68FF24BDB364000EA407 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E68FE24BDB364000EA407 /* SearchBar.swift */; };
 		4A9E690024BDB364000EA407 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E68FE24BDB364000EA407 /* SearchBar.swift */; };
@@ -62,8 +66,10 @@
 		4A5C168224AF84EA006C7564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A5C169724AF8845006C7564 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		4A5C169A24AF99F9006C7564 /* ClubLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocation.swift; sourceTree = "<group>"; };
+		4A88763D24BDCBEB00F331E8 /* clubs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = clubs.xml; sourceTree = "<group>"; };
+		4A88764024BDD4CF00F331E8 /* AllClubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClubs.swift; sourceTree = "<group>"; };
+		4A88764324BDE63A00F331E8 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
-		4A9E68F524BCA2E3000EA407 /* clubs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = clubs.xml; path = ../../../../Desktop/clubs.xml; sourceTree = "<group>"; };
 		4A9E68FE24BDB364000EA407 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +121,7 @@
 		4A5C165924AF84E7006C7564 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				4A9E68F524BCA2E3000EA407 /* clubs.xml */,
+				4A88763D24BDCBEB00F331E8 /* clubs.xml */,
 				4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */,
 				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
 				4A5C169A24AF99F9006C7564 /* ClubLocation.swift */,
@@ -123,6 +129,8 @@
 				4A5C169724AF8845006C7564 /* Club.swift */,
 				4A9DF81024B078B000AB6EF9 /* ClubStore.swift */,
 				4A9E68FE24BDB364000EA407 /* SearchBar.swift */,
+				4A88764024BDD4CF00F331E8 /* AllClubs.swift */,
+				4A88764324BDE63A00F331E8 /* LocationFetcher.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -304,7 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5C168724AF84EA006C7564 /* Assets.xcassets in Resources */,
-				4A9E68F624BCA2E3000EA407 /* clubs.xml in Resources */,
+				4A88763E24BDCBEB00F331E8 /* clubs.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5C168824AF84EA006C7564 /* Assets.xcassets in Resources */,
-				4A9E68F724BCA2E3000EA407 /* clubs.xml in Resources */,
+				4A88763F24BDCBEB00F331E8 /* clubs.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,10 +348,12 @@
 			files = (
 				4A5C169B24AF99F9006C7564 /* ClubLocation.swift in Sources */,
 				4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */,
+				4A88764424BDE63A00F331E8 /* LocationFetcher.swift in Sources */,
 				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4A5C169824AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */,
 				4A9E68FF24BDB364000EA407 /* SearchBar.swift in Sources */,
+				4A88764124BDD4CF00F331E8 /* AllClubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,10 +363,12 @@
 			files = (
 				4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */,
 				4A5C168624AF84EA006C7564 /* ContentView.swift in Sources */,
+				4A88764524BDE63A00F331E8 /* LocationFetcher.swift in Sources */,
 				4A5C168424AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4A5C169924AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */,
 				4A9E690024BDB364000EA407 /* SearchBar.swift in Sources */,
+				4A88764224BDD4CF00F331E8 /* AllClubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

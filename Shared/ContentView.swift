@@ -11,7 +11,6 @@ struct ContentView: View {
     
     @ObservedObject var store: ClubStore
     @State private var searchText = ""
-    @State private var visibleClubs = 0
     
     var body: some View {
         NavigationView {
@@ -19,21 +18,25 @@ struct ContentView: View {
             List{
                 SearchBar(text: $searchText)
                 
-                ForEach(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}, id:\.self) { club in
+                ForEach(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}, id: \.id) { club in
                     ClubCell(club: club)
                 }
                 
                 HStack {
                     Spacer()
-                    Text("\(store.clubs.count) clubs")
+                    Text("\(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}.count) clubs")
                         .foregroundColor(.secondary)
                 }
             }
             .navigationTitle("Dojos")
+            .toolbar {
+                NavigationLink("On a Map", destination: AllClubs(store: store))
+            }
             
             Text("Choose a Dojo")
                 .font(.largeTitle)
         }
+
     }
 }
 
