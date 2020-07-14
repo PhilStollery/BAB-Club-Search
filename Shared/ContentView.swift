@@ -17,15 +17,19 @@ struct ContentView: View {
             
             List{
                 SearchBar(text: $searchText)
-                
-                ForEach(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}, id: \.id) { club in
-                    ClubCell(club: club)
-                }
-                
+
                 HStack {
                     Spacer()
                     Text("\(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}.count) clubs")
+                        .font(.subheadline)
+                        .fontWeight(.bold)
                         .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                }
+                
+                ForEach(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}, id: \.id) { club in
+                    ClubCell(club: club)
                 }
             }
             .navigationTitle("Dojos")
