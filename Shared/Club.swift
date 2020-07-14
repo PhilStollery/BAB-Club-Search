@@ -14,18 +14,29 @@
 import Foundation
 import MapKit
 
-struct Club: Identifiable {
+struct Club: Identifiable, Hashable {
+    static func == (lhs: Club, rhs: Club) -> Bool {
+        return lhs.clubname == rhs.clubname && lhs.association == rhs.association
+    }
+    
+    func hasPrefix(search: String) -> Bool {
+        return association.lowercased().contains(search.lowercased())
+            || clubname.lowercased().contains(search.lowercased())
+            || town.lowercased().contains(search.lowercased())
+    }
+    
     var id = UUID()
     var association: String
     var clubname: String
     var town: String
-    var location: CLLocationCoordinate2D
+    var lat: Double
+    var lng: Double
 }
 
 let testData = [
-    Club(association: "Go Shin Kai", clubname: "Aikido Kami", town: "Bourton on the Water", location: CLLocationCoordinate2D( latitude: 51.885414, longitude: -1.759105)),
-    Club(association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Bridport", town: "Bridport", location: CLLocationCoordinate2D( latitude: 50.72583, longitude: -2.763421)),
-    Club(association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Bristol", town: "Bristol", location: CLLocationCoordinate2D( latitude:51.52946, longitude:-2.563554)),
-         Club(association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Kendal", town: "Kendal", location: CLLocationCoordinate2D( latitude:54.338791, longitude:-2.73551)),
-    Club(association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Swindon", town: "Swindon", location: CLLocationCoordinate2D( latitude:51.546513, longitude:-1.773501))
+    Club(association: "Go Shin Kai", clubname: "Aikido Kami", town: "Bourton on the Water", lat: 51.885414, lng: -1.759105),
+    Club(association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Bridport", town: "Bridport", lat: 50.72583, lng: -2.763421),
+    Club(association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Bristol", town: "Bristol", lat: 51.52946, lng: -2.563554),
+         Club(association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Kendal", town: "Kendal", lat: 54.338791, lng: -2.73551),
+    Club(association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Swindon", town: "Swindon", lat: 51.546513, lng: -1.773501)
 ]

@@ -10,11 +10,16 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var store: ClubStore
+    @State private var searchText = ""
+    @State private var visibleClubs = 0
     
     var body: some View {
         NavigationView {
-            List{                
-                ForEach(store.clubs) { club in
+            
+            List{
+                SearchBar(text: $searchText)
+                
+                ForEach(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}, id:\.self) { club in
                     ClubCell(club: club)
                 }
                 
@@ -23,7 +28,6 @@ struct ContentView: View {
                     Text("\(store.clubs.count) clubs")
                         .foregroundColor(.secondary)
                 }
-                    
             }
             .navigationTitle("Dojos")
             
@@ -54,8 +58,8 @@ struct ClubCell: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView(store: testStore)
-            ContentView(store: testStore)
+            ContentView(store: ClubStore())
+            ContentView(store: ClubStore())
                 .preferredColorScheme(.dark)
         }
     }

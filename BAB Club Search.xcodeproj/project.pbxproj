@@ -21,6 +21,11 @@
 		4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
 		4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
+		4A9E68F624BCA2E3000EA407 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A9E68F524BCA2E3000EA407 /* clubs.xml */; };
+		4A9E68F724BCA2E3000EA407 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A9E68F524BCA2E3000EA407 /* clubs.xml */; };
+		4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = 4A9E68FC24BCA8FC000EA407 /* AEXML */; };
+		4A9E68FF24BDB364000EA407 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E68FE24BDB364000EA407 /* SearchBar.swift */; };
+		4A9E690024BDB364000EA407 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E68FE24BDB364000EA407 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,8 @@
 		4A5C169724AF8845006C7564 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		4A5C169A24AF99F9006C7564 /* ClubLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocation.swift; sourceTree = "<group>"; };
 		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
+		4A9E68F524BCA2E3000EA407 /* clubs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = clubs.xml; path = ../../../../Desktop/clubs.xml; sourceTree = "<group>"; };
+		4A9E68FE24BDB364000EA407 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,12 +115,14 @@
 		4A5C165924AF84E7006C7564 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4A9E68F524BCA2E3000EA407 /* clubs.xml */,
 				4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */,
 				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
 				4A5C169A24AF99F9006C7564 /* ClubLocation.swift */,
 				4A5C165C24AF84EA006C7564 /* Assets.xcassets */,
 				4A5C169724AF8845006C7564 /* Club.swift */,
 				4A9DF81024B078B000AB6EF9 /* ClubStore.swift */,
+				4A9E68FE24BDB364000EA407 /* SearchBar.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -179,6 +189,9 @@
 			dependencies = (
 			);
 			name = iOS;
+			packageProductDependencies = (
+				4A9E68FC24BCA8FC000EA407 /* AEXML */,
+			);
 			productName = iOS;
 			productReference = 4A5C166124AF84EA006C7564 /* BAB Club Search.app */;
 			productType = "com.apple.product-type.application";
@@ -270,6 +283,9 @@
 				Base,
 			);
 			mainGroup = 4A5C165424AF84E7006C7564;
+			packageReferences = (
+				4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */,
+			);
 			productRefGroup = 4A5C166224AF84EA006C7564 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -288,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5C168724AF84EA006C7564 /* Assets.xcassets in Resources */,
+				4A9E68F624BCA2E3000EA407 /* clubs.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5C168824AF84EA006C7564 /* Assets.xcassets in Resources */,
+				4A9E68F724BCA2E3000EA407 /* clubs.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +343,7 @@
 				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4A5C169824AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */,
+				4A9E68FF24BDB364000EA407 /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +356,7 @@
 				4A5C168424AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4A5C169924AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */,
+				4A9E690024BDB364000EA407 /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +726,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tadija/AEXML.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A9E68FC24BCA8FC000EA407 /* AEXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */;
+			productName = AEXML;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A5C165524AF84E7006C7564 /* Project object */;
 }
