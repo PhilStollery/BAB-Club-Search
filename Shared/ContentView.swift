@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftlySearch
 
 struct ContentView: View {
     
@@ -14,10 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            
             List{
-                SearchBar(text: $searchText)
-
                 HStack {
                     Spacer()
                     Text("\(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}.count) clubs")
@@ -41,6 +39,7 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationBarSearch(self.$searchText)
             
             Text("Choose a Dojo")
                 .font(.largeTitle)

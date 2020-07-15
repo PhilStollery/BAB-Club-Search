@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A29CB3A24BE14470057F878 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29CB3924BE14470057F878 /* About.swift */; };
 		4A29CB3B24BE14470057F878 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29CB3924BE14470057F878 /* About.swift */; };
+		4A29CB3D24BF1E890057F878 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */; };
 		4A5C167624AF84EA006C7564 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C167524AF84EA006C7564 /* Tests_iOS.swift */; };
 		4A5C168124AF84EA006C7564 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C168024AF84EA006C7564 /* Tests_macOS.swift */; };
 		4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */; };
@@ -30,8 +31,7 @@
 		4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = 4A9E68FC24BCA8FC000EA407 /* AEXML */; };
-		4A9E68FF24BDB364000EA407 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E68FE24BDB364000EA407 /* SearchBar.swift */; };
-		4A9E690024BDB364000EA407 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E68FE24BDB364000EA407 /* SearchBar.swift */; };
+		4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 4ACA6EC524BF3F810078CF84 /* SwiftlySearch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		4A29CB3924BE14470057F878 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAB_Club_SearchApp.swift; sourceTree = "<group>"; };
 		4A5C165B24AF84E7006C7564 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A5C165C24AF84EA006C7564 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		4A88764024BDD4CF00F331E8 /* AllClubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClubs.swift; sourceTree = "<group>"; };
 		4A88764324BDE63A00F331E8 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
-		4A9E68FE24BDB364000EA407 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */,
+				4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +132,6 @@
 				4A5C165C24AF84EA006C7564 /* Assets.xcassets */,
 				4A5C169724AF8845006C7564 /* Club.swift */,
 				4A9DF81024B078B000AB6EF9 /* ClubStore.swift */,
-				4A9E68FE24BDB364000EA407 /* SearchBar.swift */,
 				4A88764024BDD4CF00F331E8 /* AllClubs.swift */,
 				4A88764324BDE63A00F331E8 /* LocationFetcher.swift */,
 				4A29CB3924BE14470057F878 /* About.swift */,
@@ -154,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				4A5C166424AF84EA006C7564 /* Info.plist */,
+				4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -203,6 +204,7 @@
 			name = iOS;
 			packageProductDependencies = (
 				4A9E68FC24BCA8FC000EA407 /* AEXML */,
+				4ACA6EC524BF3F810078CF84 /* SwiftlySearch */,
 			);
 			productName = iOS;
 			productReference = 4A5C166124AF84EA006C7564 /* BAB Club Search.app */;
@@ -297,6 +299,7 @@
 			mainGroup = 4A5C165424AF84E7006C7564;
 			packageReferences = (
 				4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */,
+				4ACA6EC424BF3F810078CF84 /* XCRemoteSwiftPackageReference "SwiftlySearch" */,
 			);
 			productRefGroup = 4A5C166224AF84EA006C7564 /* Products */;
 			projectDirPath = "";
@@ -315,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A29CB3D24BF1E890057F878 /* Launch Screen.storyboard in Resources */,
 				4A5C168724AF84EA006C7564 /* Assets.xcassets in Resources */,
 				4A88763E24BDCBEB00F331E8 /* clubs.xml in Resources */,
 			);
@@ -356,7 +360,6 @@
 				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4A5C169824AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */,
-				4A9E68FF24BDB364000EA407 /* SearchBar.swift in Sources */,
 				4A29CB3A24BE14470057F878 /* About.swift in Sources */,
 				4A88764124BDD4CF00F331E8 /* AllClubs.swift in Sources */,
 			);
@@ -372,7 +375,6 @@
 				4A5C168424AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4A5C169924AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */,
-				4A9E690024BDB364000EA407 /* SearchBar.swift in Sources */,
 				4A29CB3B24BE14470057F878 /* About.swift in Sources */,
 				4A88764224BDD4CF00F331E8 /* AllClubs.swift in Sources */,
 			);
@@ -754,6 +756,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		4ACA6EC424BF3F810078CF84 /* XCRemoteSwiftPackageReference "SwiftlySearch" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thislooksfun/SwiftlySearch.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -761,6 +771,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */;
 			productName = AEXML;
+		};
+		4ACA6EC524BF3F810078CF84 /* SwiftlySearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4ACA6EC424BF3F810078CF84 /* XCRemoteSwiftPackageReference "SwiftlySearch" */;
+			productName = SwiftlySearch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

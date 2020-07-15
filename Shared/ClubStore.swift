@@ -26,7 +26,11 @@ class ClubStore: ObservableObject {
             // * errorOrNil should be nil
             // * responseOrNil should be an HTTPURLResponse with statusCode in 200..<299
             
-            guard let fileURL = urlOrNil else { return }
+            guard let fileURL = urlOrNil else {
+                self.readXML()
+                semaphore.signal()
+                return
+            }
             do {
                 let documentsURL = try
                     FileManager.default.url(for: .documentDirectory,
@@ -38,6 +42,7 @@ class ClubStore: ObservableObject {
                 self.readXML(fileLocation: savedURL)
                 semaphore.signal()
             } catch {
+                semaphore.signal()
                 print ("file error: \(error)")
             }
         }
@@ -45,30 +50,29 @@ class ClubStore: ObservableObject {
         semaphore.wait()
     }
 
-    private func readXML(fileLocation: URL) {
+    private func readXML(fileLocation: URL? = nil) {
 
         var options = AEXMLOptions()
         options.parserSettings.shouldProcessNamespaces = false
         options.parserSettings.shouldReportNamespacePrefixes = false
         options.parserSettings.shouldResolveExternalEntities = false
         
+        var checkLocation = fileLocation
+        
+        if (checkLocation == nil) {
+            let xmlPath = Bundle.main.path(forResource: "clubs", ofType: "xml")
+            checkLocation = URL(fileURLWithPath: xmlPath!)
+        }
+        
         guard
-            var data = try? Data(contentsOf: fileLocation)
+            let data = try? Data(contentsOf: checkLocation!)
         else {
             print("Cannot load the downloaded file")
             return
         }
         
         do {
-            var document = try AEXMLDocument(xml: data, options: options)
-            
-            // failed to get anything from the web that's sensible, used saved XML
-            if (document.root.children.count == 0) {
-                print("NO DATA DOWNLOADED, using cached version")
-                let xmlPath = Bundle.main.path(forResource: "clubs", ofType: "xml")
-                data = try! Data(contentsOf: URL(fileURLWithPath: xmlPath!))
-                document = try AEXMLDocument(xml: data, options: options)
-            }
+            let document = try AEXMLDocument(xml: data, options: options)
             
             // parse known structure
             for child in document.root.children {
