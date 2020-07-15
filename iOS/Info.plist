@@ -20,8 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Can I know your location? I&apos;ll use this to show Dojos near you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We will show your location on the map screen. Please allow access to it.</string>
+	<string>Can I know your current location? I&apos;ll use this to show Dojos near you.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Can I know your current location? I&apos;ll use this to show Dojos near you.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

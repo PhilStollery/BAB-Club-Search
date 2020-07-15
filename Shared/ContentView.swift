@@ -32,11 +32,13 @@ struct ContentView: View {
             }
             .navigationTitle("Dojos")
             .toolbar {
-                ToolbarItem {
-                    HStack {
-                        NavigationLink("About", destination: About())
-                        NavigationLink("Map View", destination: AllClubs(store: store))
-                    }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink("About", destination: About())
+
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink("Map View", destination: AllClubs(store: store))
+
                 }
             }
             .navigationBarSearch(self.$searchText)
