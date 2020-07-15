@@ -13,6 +13,8 @@ class ClubStore: ObservableObject {
     @Published var clubs: [Club]
     
     init(clubs: [Club] = []) {
+        let semaphore = DispatchSemaphore(value: 0)
+        
         self.clubs = clubs
         
         // Call the BAB search API to get XML for every Dojo in the database
@@ -34,12 +36,13 @@ class ClubStore: ObservableObject {
                 let savedURL = documentsURL.appendingPathComponent(fileURL.lastPathComponent)
                 try FileManager.default.moveItem(at: fileURL, to: savedURL)
                 self.readXML(fileLocation: savedURL)
+                semaphore.signal()
             } catch {
                 print ("file error: \(error)")
             }
         }
         downloadTask.resume()
-
+        semaphore.wait()
     }
 
     private func readXML(fileLocation: URL) {
@@ -61,6 +64,7 @@ class ClubStore: ObservableObject {
             
             // failed to get anything from the web that's sensible, used saved XML
             if (document.root.children.count == 0) {
+                print("NO DATA DOWNLOADED, using cached version")
                 let xmlPath = Bundle.main.path(forResource: "clubs", ofType: "xml")
                 data = try! Data(contentsOf: URL(fileURLWithPath: xmlPath!))
                 document = try AEXMLDocument(xml: data, options: options)
@@ -83,7 +87,5 @@ class ClubStore: ObservableObject {
     }
 
 }
-
-
 
 let testStore = ClubStore(clubs: testData)

@@ -34,13 +34,17 @@ struct ContentView: View {
             }
             .navigationTitle("Dojos")
             .toolbar {
-                NavigationLink("On a Map", destination: AllClubs(store: store))
+                ToolbarItem {
+                    HStack {
+                        NavigationLink("About", destination: About())
+                        NavigationLink("Map View", destination: AllClubs(store: store))
+                    }
+                }
             }
             
             Text("Choose a Dojo")
                 .font(.largeTitle)
         }
-
     }
 }
 

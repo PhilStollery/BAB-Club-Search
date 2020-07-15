@@ -37,7 +37,7 @@ struct AllClubs: View {
                 MapPin(coordinate: CLLocationCoordinate2D(latitude: item.lat, longitude: item.lng) )
             }
         }
-        .navigationTitle(Text("All Dojos"))
+        .navigationBarTitle(Text("Map View"), displayMode: .inline)
     }
     
 }
