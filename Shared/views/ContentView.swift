@@ -50,11 +50,12 @@ struct ContentView: View {
                     .navigationBarSearch(self.$searchText)
                     
                     Text("Choose a Dojo or view them all on a map.")
-                        .font(.largeTitle)
+                        .font(.title)
                 }
             } else {
                 HStack {
                     Text("Loading data from the BAB")
+                        .font(.title2)
                     ProgressView()
                         .padding(.leading, 15.0)
                         .progressViewStyle(CircularProgressViewStyle())

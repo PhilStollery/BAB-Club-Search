@@ -7,6 +7,8 @@
 
 import CoreLocation
 
+
+/// Not sure if this is even being used as the Map show user current location
 class LocationFetcher: NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     var lastKnownLocation: CLLocationCoordinate2D?
