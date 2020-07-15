@@ -8,10 +8,10 @@
 import SwiftUI
 import MapKit
 
-struct AllClubs: View {
+struct AllClubsView: View {
     
     let locationFetcher = LocationFetcher()
-    var store: ClubStore
+    @ObservedObject var store: ClubStore
     @State private var coordinateRegion: MKCoordinateRegion
     @State private var trackingMode = MapUserTrackingMode.follow
     
@@ -33,7 +33,7 @@ struct AllClubs: View {
         VStack {
             Map(coordinateRegion: $coordinateRegion,
                 showsUserLocation: true, userTrackingMode: $trackingMode,
-                annotationItems: store.clubs) {item in
+                annotationItems: store.clubs!) {item in
                 MapMarker(coordinate: CLLocationCoordinate2D(latitude: item.lat, longitude: item.lng), tint: .accentColor )
             }
         }
@@ -73,10 +73,10 @@ struct AllClubs_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                AllClubs(store: ClubStore())
+                AllClubsView(store: ClubStore())
             }
             NavigationView {
-                AllClubs(store: ClubStore())
+                AllClubsView(store: ClubStore())
             }.preferredColorScheme(.dark)
         }
 

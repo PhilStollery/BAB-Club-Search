@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct ClubLocation: View {
+struct ClubLocationView: View {
     var club: Club
     @State private var coordinateRegion: MKCoordinateRegion
     
@@ -32,6 +32,8 @@ struct ClubLocation: View {
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(Color.secondary)
                 .padding(.bottom)
+            Link("BAB information", destination: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(club.clubId)")!)
+                .font(.system(size: 18, weight: .bold))
         }
         .navigationTitle(Text(club.clubname))
     }
@@ -40,7 +42,7 @@ struct ClubLocation: View {
 struct ClubLocation_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ClubLocation(club: testData[2])
+            ClubLocationView(club: testData[2])
         }
     }
 }

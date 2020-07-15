@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct About: View {
+struct AboutView: View {
     var body: some View {
         VStack{
             ZStack {
@@ -44,8 +44,8 @@ struct About: View {
             HStack(alignment: VerticalAlignment.center) {
                 Image(systemName: "envelope.fill")
                     .foregroundColor(.accentColor)
-                Link(destination: URL(string: "mailto:sensei@bristol-ki-aikido.org?subject=FEEDBACK:BAB%20Club%20Search%20iOS")!) {
-                    Text("sensei@bristol-ki-aikido.org")
+                Link(destination: URL(string: "mailto:sensei@bristol-ki-aikido.uk?subject=FEEDBACK:BAB%20Club%20Search%20iOS")!) {
+                    Text("sensei@bristol-ki-aikido.uk")
                 }
             }
             .padding([.top, .leading, .trailing], 20.0)
@@ -60,10 +60,10 @@ struct About_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                About()
+                AboutView()
             }
             NavigationView {
-                About()
+                AboutView()
             }.preferredColorScheme(.dark)
         }
     }

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A29CB3A24BE14470057F878 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29CB3924BE14470057F878 /* About.swift */; };
-		4A29CB3B24BE14470057F878 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29CB3924BE14470057F878 /* About.swift */; };
+		4A29CB3A24BE14470057F878 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29CB3924BE14470057F878 /* AboutView.swift */; };
+		4A29CB3B24BE14470057F878 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29CB3924BE14470057F878 /* AboutView.swift */; };
 		4A29CB3D24BF1E890057F878 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */; };
 		4A5C167624AF84EA006C7564 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C167524AF84EA006C7564 /* Tests_iOS.swift */; };
 		4A5C168124AF84EA006C7564 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C168024AF84EA006C7564 /* Tests_macOS.swift */; };
@@ -20,12 +20,12 @@
 		4A5C168824AF84EA006C7564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C165C24AF84EA006C7564 /* Assets.xcassets */; };
 		4A5C169824AF8845006C7564 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Club.swift */; };
 		4A5C169924AF8845006C7564 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169724AF8845006C7564 /* Club.swift */; };
-		4A5C169B24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
-		4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocation.swift */; };
+		4A5C169B24AF99F9006C7564 /* ClubLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */; };
+		4A5C169C24AF99F9006C7564 /* ClubLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */; };
 		4A88763E24BDCBEB00F331E8 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A88763D24BDCBEB00F331E8 /* clubs.xml */; };
 		4A88763F24BDCBEB00F331E8 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A88763D24BDCBEB00F331E8 /* clubs.xml */; };
-		4A88764124BDD4CF00F331E8 /* AllClubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764024BDD4CF00F331E8 /* AllClubs.swift */; };
-		4A88764224BDD4CF00F331E8 /* AllClubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764024BDD4CF00F331E8 /* AllClubs.swift */; };
+		4A88764124BDD4CF00F331E8 /* AllClubsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764024BDD4CF00F331E8 /* AllClubsView.swift */; };
+		4A88764224BDD4CF00F331E8 /* AllClubsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764024BDD4CF00F331E8 /* AllClubsView.swift */; };
 		4A88764424BDE63A00F331E8 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764324BDE63A00F331E8 /* LocationFetcher.swift */; };
 		4A88764524BDE63A00F331E8 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88764324BDE63A00F331E8 /* LocationFetcher.swift */; };
 		4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
@@ -52,7 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A29CB3924BE14470057F878 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		4A29CB3924BE14470057F878 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAB_Club_SearchApp.swift; sourceTree = "<group>"; };
 		4A5C165B24AF84E7006C7564 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,9 +69,9 @@
 		4A5C168024AF84EA006C7564 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		4A5C168224AF84EA006C7564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A5C169724AF8845006C7564 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
-		4A5C169A24AF99F9006C7564 /* ClubLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocation.swift; sourceTree = "<group>"; };
+		4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocationView.swift; sourceTree = "<group>"; };
 		4A88763D24BDCBEB00F331E8 /* clubs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = clubs.xml; sourceTree = "<group>"; };
-		4A88764024BDD4CF00F331E8 /* AllClubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClubs.swift; sourceTree = "<group>"; };
+		4A88764024BDD4CF00F331E8 /* AllClubsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClubsView.swift; sourceTree = "<group>"; };
 		4A88764324BDE63A00F331E8 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +110,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A0FDB7224BF9CA300E2A876 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				4A88764324BDE63A00F331E8 /* LocationFetcher.swift */,
+				4A5C169724AF8845006C7564 /* Club.swift */,
+				4A9DF81024B078B000AB6EF9 /* ClubStore.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		4A0FDB7324BF9CAB00E2A876 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				4A29CB3924BE14470057F878 /* AboutView.swift */,
+				4A88764024BDD4CF00F331E8 /* AllClubsView.swift */,
+				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
+				4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		4A5C165424AF84E7006C7564 = {
 			isa = PBXGroup;
 			children = (
@@ -125,16 +146,11 @@
 		4A5C165924AF84E7006C7564 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4A0FDB7324BF9CAB00E2A876 /* views */,
+				4A0FDB7224BF9CA300E2A876 /* models */,
 				4A88763D24BDCBEB00F331E8 /* clubs.xml */,
 				4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */,
-				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
-				4A5C169A24AF99F9006C7564 /* ClubLocation.swift */,
 				4A5C165C24AF84EA006C7564 /* Assets.xcassets */,
-				4A5C169724AF8845006C7564 /* Club.swift */,
-				4A9DF81024B078B000AB6EF9 /* ClubStore.swift */,
-				4A88764024BDD4CF00F331E8 /* AllClubs.swift */,
-				4A88764324BDE63A00F331E8 /* LocationFetcher.swift */,
-				4A29CB3924BE14470057F878 /* About.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -354,14 +370,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A5C169B24AF99F9006C7564 /* ClubLocation.swift in Sources */,
+				4A5C169B24AF99F9006C7564 /* ClubLocationView.swift in Sources */,
 				4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */,
 				4A88764424BDE63A00F331E8 /* LocationFetcher.swift in Sources */,
 				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4A5C169824AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */,
-				4A29CB3A24BE14470057F878 /* About.swift in Sources */,
-				4A88764124BDD4CF00F331E8 /* AllClubs.swift in Sources */,
+				4A29CB3A24BE14470057F878 /* AboutView.swift in Sources */,
+				4A88764124BDD4CF00F331E8 /* AllClubsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,14 +385,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A5C169C24AF99F9006C7564 /* ClubLocation.swift in Sources */,
+				4A5C169C24AF99F9006C7564 /* ClubLocationView.swift in Sources */,
 				4A5C168624AF84EA006C7564 /* ContentView.swift in Sources */,
 				4A88764524BDE63A00F331E8 /* LocationFetcher.swift in Sources */,
 				4A5C168424AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4A5C169924AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */,
-				4A29CB3B24BE14470057F878 /* About.swift in Sources */,
-				4A88764224BDD4CF00F331E8 /* AllClubs.swift in Sources */,
+				4A29CB3B24BE14470057F878 /* AboutView.swift in Sources */,
+				4A88764224BDD4CF00F331E8 /* AllClubsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
