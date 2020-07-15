@@ -58,8 +58,13 @@ struct About: View {
 
 struct About_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            About()
+        Group {
+            NavigationView {
+                About()
+            }
+            NavigationView {
+                About()
+            }.preferredColorScheme(.dark)
         }
     }
 }
