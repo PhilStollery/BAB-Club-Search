@@ -5,25 +5,34 @@
 //  Created by Phil Stollery on 04/07/2020.
 //
 
-import SwiftUI
+import Foundation
 import AEXML
 
+/// Store all the loaded clubs
 class ClubStore: ObservableObject {
     @Published var clubs: [Club]? = nil
     @Published var dataLoaded = false
-    @Published var totalClubs: Int = 0
-    @Published var addedClubs: Int = 0
 }
 
 extension ClubStore {
+    
+    /// Let views request for the data to be loaded
+    /// - Parameter urlString: The URL to get the club data from, guess it could be in settings
     func loadXML(urlString: String) {
         let url = URL(string: urlString)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request, completionHandler: parseXMLData)
+        // go get the data
         task.resume()
     }
-        
+    
+    
+    /// Delegate for the URLSession
+    /// - Parameters:
+    ///   - data: data returned from the API
+    ///   - urlResponse: HTTP reposnse code
+    ///   - error: error details from iOS
     func parseXMLData(data: Data?, urlResponse: URLResponse?, error: Error?) {
         guard error == nil else {
             print("Error trying to call API: \(error!)")
@@ -44,27 +53,20 @@ extension ClubStore {
             let document = try AEXMLDocument(xml: content, options: options)
             var parsedClubs: [Club] = []
             
-            DispatchQueue.main.async {
-                self.totalClubs = document.root.children.count
-            }
-            
-            // parse known structure
+            // parse found structure
             for child in document.root.children {
                 
-                // people can
+                // create clubs for each XML node
                 if (child.attributes["lat"]! != "0" && child.attributes["lng"]! != "0") {
                     parsedClubs.append(Club(clubId:Int(child.attributes["Id"]!)!,
                       association: child.attributes["association"]!.trimmingCharacters(in: .whitespacesAndNewlines),
                       clubname: child.attributes["clubname"]!.trimmingCharacters(in: .whitespacesAndNewlines),
                       town: child.attributes["clubtown"]!.trimmingCharacters(in: .whitespacesAndNewlines),
                       lat: Double(child.attributes["lat"]!)!, lng: Double(child.attributes["lng"]!)!))
-                    
-                    DispatchQueue.main.async {
-                        self.addedClubs += 1
-                    }
                 }
             }
             
+            //Updating an observed variable can't be done in the background, so send to main
             DispatchQueue.main.async {
                 self.clubs = parsedClubs
                 self.dataLoaded = true

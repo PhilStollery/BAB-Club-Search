@@ -7,20 +7,33 @@
 // XML can be seen in the clubs.xml file
 // Clud details - like web address and contact details are in https://www.bab.org.uk/clubs/club-search/?ViewClubMapID= <clubId>
 
-import SwiftUI
-import MapKit
+import Foundation
 
+
+/// Object to store the club details to show in views
 struct Club: Identifiable, Hashable {
+    
+    
+    /// Needed to allow hashable
+    /// - Parameters:
+    ///   - lhs: lhs of the comparison
+    ///   - rhs: rhs of the comparison
+    /// - Returns: true if the match
     static func == (lhs: Club, rhs: Club) -> Bool {
         return lhs.clubname == rhs.clubname && lhs.association == rhs.association
     }
     
+    
+    /// Overload hasPrefix to allow the search field in the view to filter a list
+    /// - Parameter search: string to look for
+    /// - Returns: true if the string is in any of the details of a club - ignoreing case
     func hasPrefix(search: String) -> Bool {
         return association.lowercased().contains(search.lowercased())
             || clubname.lowercased().contains(search.lowercased())
             || town.lowercased().contains(search.lowercased())
     }
     
+    /// properties
     var id = UUID()
     var clubId: Int
     var association: String

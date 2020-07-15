@@ -41,8 +41,13 @@ struct ClubLocationView: View {
 
 struct ClubLocation_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ClubLocationView(club: testData[2])
+        Group {
+            NavigationView {
+                ClubLocationView(club: testData[2])
+            }
+            NavigationView {
+                ClubLocationView(club: testData[2])
+            }.preferredColorScheme(.dark)
         }
     }
 }
