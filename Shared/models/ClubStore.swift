@@ -27,6 +27,10 @@ extension ClubStore {
         task.resume()
     }
     
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
     
     /// Delegate for the URLSession
     /// - Parameters:
@@ -34,14 +38,26 @@ extension ClubStore {
     ///   - urlResponse: HTTP reposnse code
     ///   - error: error details from iOS
     func parseXMLData(data: Data?, urlResponse: URLResponse?, error: Error?) {
-        guard error == nil else {
+        var readStoredData = false
+        var content = Data()
+        let checkLocation = getDocumentsDirectory().appendingPathComponent("clubs.xml")
+        
+        // if the phone is in airoplane mode, or there's no network connection
+        // need to read a locally chached version of the club.xml
+        if error != nil {
             print("Error trying to call API: \(error!)")
-            return
+            readStoredData = true
+        } else if data == nil {
+            print("Error no data returned from API")
+            readStoredData = true
+        } else {
+            // let's assume we got good data
+            content = data!
         }
         
-        guard let content = data else {
-            print("Error no data returned from API")
-            return
+        // read the cached version
+        if readStoredData {
+            content = try! Data(contentsOf: checkLocation)
         }
         
         var options = AEXMLOptions()
@@ -70,6 +86,15 @@ extension ClubStore {
             DispatchQueue.main.async {
                 self.clubs = parsedClubs
                 self.dataLoaded = true
+                
+                // succesfully read the API so save the retrieved data over clubs.xml
+                if !readStoredData {
+                    do {
+                        try content.write(to: checkLocation)
+                    } catch {
+                        print("Failed updating local cache or clubs.xml, Error: " + error.localizedDescription)
+                    }
+                }
             }
         } catch {
             print("Error parsing XML: \(error)")

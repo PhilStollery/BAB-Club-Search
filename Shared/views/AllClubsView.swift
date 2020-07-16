@@ -18,12 +18,9 @@ struct AllClubsView: View {
     init(store: ClubStore) {
         var myLocation = MKCoordinateRegion()
         
-        if let location = self.locationFetcher.lastKnownLocation {
-            myLocation = MKCoordinateRegion(center: location, latitudinalMeters: 10000, longitudinalMeters: 10000)
-        } else {
-            //centre on the middle of the UK
-            myLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 54.00366, longitude: -2.547855) , latitudinalMeters: 500000, longitudinalMeters: 500000)
-        }
+        //centre on the middle of the UK
+        myLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 54.00366, longitude: -2.547855) , latitudinalMeters: 500000, longitudinalMeters: 500000)
+
         self.store = store
         self._coordinateRegion = State(wrappedValue: myLocation)
     }
