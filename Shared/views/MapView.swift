@@ -14,8 +14,15 @@ struct MapView: UIViewRepresentable {
     @Binding var showingPlaceDetails: Bool
     var annotations: [MKPointAnnotation]
     
+    var locationManager = CLLocationManager()
+    func setupManager() {
+      locationManager.desiredAccuracy = kCLLocationAccuracyReduced
+      locationManager.requestWhenInUseAuthorization()
+    }
+    
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
+        setupManager()
         mapView.isRotateEnabled = false
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
