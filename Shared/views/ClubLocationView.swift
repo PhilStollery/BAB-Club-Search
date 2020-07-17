@@ -33,8 +33,8 @@ struct ClubLocationView: View {
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(Color.secondary)
                 .padding(.bottom)
-            Button("BAB information") {
-                showingDetailScreen = true
+            Button(action: {showingDetailScreen = true}) {
+                Text("BAB information")
             }
         }
         .navigationTitle(Text(club.clubname))
