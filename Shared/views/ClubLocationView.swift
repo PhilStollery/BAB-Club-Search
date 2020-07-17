@@ -11,6 +11,7 @@ import MapKit
 struct ClubLocationView: View {
     var club: Club
     @State private var coordinateRegion: MKCoordinateRegion
+    @State private var showingDetailScreen = false
     
     init(club: Club) {
         let getPoisiton = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lng), latitudinalMeters: 1500, longitudinalMeters: 1500)
@@ -32,10 +33,14 @@ struct ClubLocationView: View {
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(Color.secondary)
                 .padding(.bottom)
-            Link("BAB information", destination: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(club.clubId)")!)
-                .font(.system(size: 18, weight: .bold))
+            Button("BAB information") {
+                showingDetailScreen = true
+            }
         }
         .navigationTitle(Text(club.clubname))
+        .sheet(isPresented: $showingDetailScreen, content: {
+            SwiftUIWebView(viewURL: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(club.clubId)")!)
+        })
     }
 }
 
