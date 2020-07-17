@@ -31,6 +31,10 @@
 		4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = 4A9E68FC24BCA8FC000EA407 /* AEXML */; };
+		4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
+		4ABDC05A24C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
+		4ABDC05C24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */; };
+		4ABDC05D24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */; };
 		4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 4ACA6EC524BF3F810078CF84 /* SwiftlySearch */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +78,8 @@
 		4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocationView.swift; sourceTree = "<group>"; };
 		4A88763D24BDCBEB00F331E8 /* clubs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = clubs.xml; sourceTree = "<group>"; };
 		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
+		4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlWebView.swift; sourceTree = "<group>"; };
+		4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,8 @@
 				4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */,
 				4A4C153F24C098D4001E4B1D /* MapView.swift */,
 				4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */,
+				4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */,
+				4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -373,6 +381,8 @@
 				4A5C169B24AF99F9006C7564 /* ClubLocationView.swift in Sources */,
 				4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */,
 				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
+				4ABDC05C24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */,
+				4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */,
 				4A4C154324C18E23001E4B1D /* AnnotatedMapView.swift in Sources */,
 				4A5C169824AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */,
@@ -388,6 +398,8 @@
 				4A5C169C24AF99F9006C7564 /* ClubLocationView.swift in Sources */,
 				4A5C168624AF84EA006C7564 /* ContentView.swift in Sources */,
 				4A5C168424AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
+				4ABDC05D24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */,
+				4ABDC05A24C1FE09009DB2CE /* UrlWebView.swift in Sources */,
 				4A4C154424C18E23001E4B1D /* AnnotatedMapView.swift in Sources */,
 				4A5C169924AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */,

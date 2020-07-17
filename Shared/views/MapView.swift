@@ -12,7 +12,7 @@ struct MapView: UIViewRepresentable {
     @Binding var centerCoordinate: CLLocationCoordinate2D
     @Binding var selectedPlace: MKPointAnnotation?
     @Binding var showingPlaceDetails: Bool
-    var annotations: [MKPointAnnotation]
+    @Binding var annotations: [MKPointAnnotation]
     
     var locationManager = CLLocationManager()
     func setupManager() {
@@ -105,9 +105,4 @@ extension MKPointAnnotation {
     }
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails: .constant(false), annotations: [MKPointAnnotation.example])
-            .edgesIgnoringSafeArea(.all)
-    }
-}
+
