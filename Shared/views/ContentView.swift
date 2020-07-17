@@ -11,11 +11,9 @@ import SwiftlySearch
 struct ContentView: View {
     
     @ObservedObject var store = ClubStore()
-    @State private var searchText = ""
     @State private var downloadAmount = 0.0
-    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @State private var searchText = ""
 
-    
     var body: some View {
         Group {
             // API call has loaded the clubs
@@ -37,28 +35,21 @@ struct ContentView: View {
                         }
                     }
                     .navigationTitle("Dojos")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            NavigationLink("About", destination: AboutView())
-
-                        }
-                        ToolbarItem(placement: .primaryAction) {
-                            NavigationLink("Map View", destination: AllClubsView(store: store))
-
-                        }
-                    }
+                    .navigationBarItems(
+                        leading: NavigationLink("About", destination: AboutView()),
+                        trailing: NavigationLink("Map View", destination: AnnotatedMapView(store: store))
+                    )
                     .navigationBarSearch(self.$searchText)
                     
                     Text("Choose a Dojo or view them all on a map.")
                         .font(.title)
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
             } else {
-                HStack {
-                    Text("Loading data from the BAB")
-                        .font(.title2)
-                    ProgressView()
+                VStack {
+                    ProgressView("Loading data from the BAB")
                         .padding(.leading, 15.0)
-                        .progressViewStyle(CircularProgressViewStyle())
+                        .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
                 }
             }
         }.onAppear {
