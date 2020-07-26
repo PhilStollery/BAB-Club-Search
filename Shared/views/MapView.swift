@@ -26,7 +26,7 @@ struct MapView: UIViewRepresentable {
         mapView.isRotateEnabled = false
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = MKUserTrackingMode.none
+        mapView.userTrackingMode = MKUserTrackingMode.follow
         return mapView
     }
 
