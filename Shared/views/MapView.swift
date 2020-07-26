@@ -70,17 +70,20 @@ struct MapView: UIViewRepresentable {
             if annotationView == nil {
                 // we didn't find one; make a new one
                 annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                
-                // allow this to show pop up information
-                annotationView?.canShowCallout = true
-                annotationView?.markerTintColor = UIColor.systemGreen
-
-                // attach an information button to the view
-                annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             } else {
                 // we have a view to reuse, so give it the new annotation
                 annotationView?.annotation = annotation
             }
+            
+            if annotationView?.annotation?.title != "Approximate Location" {
+                annotationView?.markerTintColor = UIColor.systemGreen
+            }
+            
+            // allow this to show pop up information
+            annotationView?.canShowCallout = true
+
+            // attach an information button to the view
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             
             // whether it's a new view or a recycled one, send it back
             return annotationView
@@ -94,15 +97,3 @@ struct MapView: UIViewRepresentable {
         }
     }
 }
-
-extension MKPointAnnotation {
-    static var example: MKPointAnnotation {
-        let annotation = MKPointAnnotation()
-        annotation.title = "London"
-        annotation.subtitle = "Home to the 2012 Summer Olympics."
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 51.5, longitude: -0.13)
-        return annotation
-    }
-}
-
-

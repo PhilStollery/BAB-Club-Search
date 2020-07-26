@@ -24,7 +24,11 @@ struct ClubLocationView: View {
             Map(coordinateRegion: $coordinateRegion, annotationItems: [club], annotationContent: { (club) in return MapPin(coordinate: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lng), tint: Color.accentColor) } )
                 .frame(alignment: .center)
                 .shadow(radius: 2)
-
+            
+            Button(action: {showingDetailScreen = true}) {
+                Text("BAB information")
+            }
+            .padding([.top, .leading, .trailing])
             Text(club.association)
                 .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
                 .foregroundColor(Color.secondary)
@@ -33,9 +37,6 @@ struct ClubLocationView: View {
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(Color.secondary)
                 .padding(.bottom)
-            Button(action: {showingDetailScreen = true}) {
-                Text("BAB information")
-            }
         }
         .navigationTitle(Text(club.clubname))
         .sheet(isPresented: $showingDetailScreen, content: {
