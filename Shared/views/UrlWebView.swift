@@ -2,9 +2,10 @@
 //  UrlWebView.swift
 //  NewsApp
 //
-//  Created by SchwiftyUI on 6/13/20.
+//  Created by Phil Stollery on 17/07/2020. Based on code from SchwiftyUI.
 //  Copyright © 2020 SchwiftyUI. All rights reserved.
 //
+
 import SwiftUI
 import WebKit
 

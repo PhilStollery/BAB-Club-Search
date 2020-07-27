@@ -57,7 +57,7 @@ struct MapView: UIViewRepresentable {
             let lonDelta:CLLocationDegrees = 0.5
             let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
             let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
-            mapView.setRegion(region, animated: false)
+            mapView.setRegion(region, animated: true)
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -75,7 +75,10 @@ struct MapView: UIViewRepresentable {
                 annotationView?.annotation = annotation
             }
             
-            if annotationView?.annotation?.title != "Approximate Location" {
+            // Colour all the dojos green, but leave the uses location as a red marker
+            // The title will ebe Approximate Location or My Location, so jyst check the end of the string
+            let title = (annotationView?.annotation?.title)!! as String
+            if title.suffix(8) != "Location" {
                 annotationView?.markerTintColor = UIColor.systemGreen
             }
             
