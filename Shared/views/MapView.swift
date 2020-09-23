@@ -16,8 +16,9 @@ struct MapView: UIViewRepresentable {
     
     var locationManager = CLLocationManager()
     func setupManager() {
-      locationManager.desiredAccuracy = kCLLocationAccuracyReduced
-      locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyReduced
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     func makeUIView(context: Context) -> MKMapView {
@@ -26,6 +27,10 @@ struct MapView: UIViewRepresentable {
         mapView.isRotateEnabled = false
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
+        if locationManager.location != nil {
+            let region = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 25000, longitudinalMeters: 25000)
+            mapView.setRegion(region, animated: true)
+        }
         locationManager.stopUpdatingLocation()
         return mapView
     }
@@ -51,17 +56,6 @@ struct MapView: UIViewRepresentable {
         
         func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
             parent.centerCoordinate = mapView.centerCoordinate
-        }
-        
-        func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-            if centerLocationOnce {
-                let latDelta:CLLocationDegrees = 0.5
-                let lonDelta:CLLocationDegrees = 0.5
-                let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-                let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
-                mapView.setRegion(region, animated: true)
-                centerLocationOnce = false
-            }
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
