@@ -13,6 +13,7 @@ struct SwiftUIWebView: View {
     var body: some View {
         VStack{
             Text("Loading details from the BAB...")
+                .padding(.top)
             UrlWebView(urlToDisplay: viewURL)
                 .edgesIgnoringSafeArea(.all)
         }

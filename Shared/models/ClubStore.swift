@@ -43,7 +43,7 @@ extension ClubStore {
         let checkLocation = getDocumentsDirectory().appendingPathComponent("clubs.xml")
         
         // if the phone is in airoplane mode, or there's no network connection
-        // need to read a locally chached version of the club.xml
+        // need to read a locally cached version of club.xml
         if error != nil {
             print("Error trying to call API: \(error!)")
             readStoredData = true

@@ -26,7 +26,7 @@ struct MapView: UIViewRepresentable {
         mapView.isRotateEnabled = false
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = MKUserTrackingMode.follow
+        locationManager.stopUpdatingLocation()
         return mapView
     }
 
@@ -43,6 +43,7 @@ struct MapView: UIViewRepresentable {
     
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapView
+        var centerLocationOnce = true
 
         init(_ parent: MapView) {
             self.parent = parent
@@ -53,11 +54,14 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-            let latDelta:CLLocationDegrees = 0.5
-            let lonDelta:CLLocationDegrees = 0.5
-            let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-            let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
-            mapView.setRegion(region, animated: true)
+            if centerLocationOnce {
+                let latDelta:CLLocationDegrees = 0.5
+                let lonDelta:CLLocationDegrees = 0.5
+                let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+                let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
+                mapView.setRegion(region, animated: true)
+                centerLocationOnce = false
+            }
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

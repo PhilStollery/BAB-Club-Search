@@ -14,6 +14,7 @@
 		4A4C154124C098D4001E4B1D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C153F24C098D4001E4B1D /* MapView.swift */; };
 		4A4C154324C18E23001E4B1D /* AnnotatedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */; };
 		4A4C154424C18E23001E4B1D /* AnnotatedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */; };
+		4A579C1D24DD6009006C6A76 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A579C1C24DD6009006C6A76 /* MapKit.framework */; };
 		4A5C167624AF84EA006C7564 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C167524AF84EA006C7564 /* Tests_iOS.swift */; };
 		4A5C168124AF84EA006C7564 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C168024AF84EA006C7564 /* Tests_macOS.swift */; };
 		4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */; };
@@ -60,6 +61,8 @@
 		4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A4C153F24C098D4001E4B1D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatedMapView.swift; sourceTree = "<group>"; };
+		4A579C1C24DD6009006C6A76 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		4A579C1E24DD61F3006C6A76 /* BAB Club SearchRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BAB Club SearchRelease.entitlements"; sourceTree = "<group>"; };
 		4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAB_Club_SearchApp.swift; sourceTree = "<group>"; };
 		4A5C165B24AF84E7006C7564 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A5C165C24AF84EA006C7564 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */,
+				4A579C1D24DD6009006C6A76 /* MapKit.framework in Frameworks */,
 				4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,14 +133,22 @@
 			isa = PBXGroup;
 			children = (
 				4A29CB3924BE14470057F878 /* AboutView.swift */,
-				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
-				4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */,
-				4A4C153F24C098D4001E4B1D /* MapView.swift */,
 				4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */,
-				4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */,
+				4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */,
+				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
+				4A4C153F24C098D4001E4B1D /* MapView.swift */,
 				4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */,
+				4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		4A579C1B24DD6009006C6A76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A579C1C24DD6009006C6A76 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4A5C165424AF84E7006C7564 = {
@@ -148,6 +160,7 @@
 				4A5C167424AF84EA006C7564 /* Tests iOS */,
 				4A5C167F24AF84EA006C7564 /* Tests macOS */,
 				4A5C166224AF84EA006C7564 /* Products */,
+				4A579C1B24DD6009006C6A76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +190,7 @@
 		4A5C166324AF84EA006C7564 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4A579C1E24DD61F3006C6A76 /* BAB Club SearchRelease.entitlements */,
 				4A5C166424AF84EA006C7564 /* Info.plist */,
 				4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */,
 			);
@@ -491,6 +505,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -544,6 +560,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -557,6 +575,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = L4225VXXB4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -565,11 +585,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Dearch";
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Search";
 				PRODUCT_NAME = "BAB Club Search";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -578,7 +599,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOS/BAB Club SearchRelease.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = L4225VXXB4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -587,11 +612,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Dearch";
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Search.iOS";
 				PRODUCT_NAME = "BAB Club Search";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -624,8 +651,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = L4225VXXB4;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -633,7 +662,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.16;
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Dearch";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Search";
 				PRODUCT_NAME = "BAB Club Search";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
