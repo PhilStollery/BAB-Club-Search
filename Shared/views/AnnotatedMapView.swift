@@ -8,6 +8,8 @@
 import MapKit
 import SwiftUI
 
+fileprivate let locationFetcher = LocationFetcher()
+
 struct AnnotatedMapView: View {
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var locations = [MKPointAnnotation]()
@@ -43,8 +45,17 @@ struct AnnotatedMapView: View {
         .sheet(isPresented: $showingDetailScreen, content: {
             SwiftUIWebView(viewURL: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(selectedClub!.clubId)")!)
         })
+        .navigationBarItems(trailing:
+                                Button(action: {
+                                    if let userLocation = locationFetcher.lastKnownLocation {
+                                        self.centerCoordinate = userLocation
+                                    }
+                                })
+                                    {Image(systemName: "location")}
+        )
         .onAppear {
             addClubs()
+            locationFetcher.start()
         }
     }
 }

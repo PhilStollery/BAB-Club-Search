@@ -14,24 +14,11 @@ struct MapView: UIViewRepresentable {
     @Binding var showingPlaceDetails: Bool
     @Binding var annotations: [MKPointAnnotation]
     
-    var locationManager = CLLocationManager()
-    func setupManager() {
-        locationManager.desiredAccuracy = kCLLocationAccuracyReduced
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
-        setupManager()
         mapView.isRotateEnabled = false
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
-        if locationManager.location != nil {
-            let region = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 25000, longitudinalMeters: 25000)
-            mapView.setRegion(region, animated: true)
-        }
-        locationManager.stopUpdatingLocation()
         return mapView
     }
 
@@ -39,6 +26,9 @@ struct MapView: UIViewRepresentable {
         if view.annotations.count < 2 {
             view.removeAnnotations(view.annotations)
             view.addAnnotations(annotations)
+        } else if centerCoordinate != view.centerCoordinate {
+            let region = MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: 25000, longitudinalMeters: 25000)
+            view.setRegion(region, animated: true)
         }
     }
 
@@ -48,7 +38,6 @@ struct MapView: UIViewRepresentable {
     
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapView
-        var centerLocationOnce = true
 
         init(_ parent: MapView) {
             self.parent = parent
@@ -96,5 +85,11 @@ struct MapView: UIViewRepresentable {
             parent.selectedPlace = placemark
             parent.showingPlaceDetails = true
         }
+    }
+}
+
+extension CLLocationCoordinate2D: Equatable {
+    static public func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
