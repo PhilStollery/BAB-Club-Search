@@ -5,25 +5,32 @@
 //  Created by Phil Stollery on 23/09/2020.
 //
 
+import SwiftUI
 import CoreLocation
-import MapKit
 
-class LocationFetcher: NSObject, CLLocationManagerDelegate {
-    let manager = CLLocationManager()
-    var lastKnownLocation: CLLocationCoordinate2D?
+class LocationManager: NSObject, ObservableObject {
+    private let locationManager = CLLocationManager()
     
+    @Published
+    var status: CLAuthorizationStatus?
+    
+    @Published
+    var current: CLLocation?
+
     override init() {
         super.init()
-        manager.delegate = self
+        self.locationManager.delegate = self
+        self.locationManager.distanceFilter = 10
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyReduced
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
     }
-    
-    func start() {
-        manager.requestWhenInUseAuthorization()
-        manager.desiredAccuracy = kCLLocationAccuracyReduced
-        manager.startUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        lastKnownLocation = locations.first?.coordinate
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        self.current = location
     }
 }

@@ -8,55 +8,70 @@
 import MapKit
 import SwiftUI
 
-fileprivate let locationFetcher = LocationFetcher()
-
 struct AnnotatedMapView: View {
-    @State private var centerCoordinate = CLLocationCoordinate2D()
-    @State private var locations = [MKPointAnnotation]()
-    @State private var selectedPlace: MKPointAnnotation?
-    @State private var showingPlaceDetails = false
-    @State private var showingDetailScreen = false
-    @State private var selectedClub: Club?
-    @ObservedObject var store: ClubStore
     
-    /// Create the array of club details to add to the map
-    func addClubs() {
-        for club in self.store.clubs! {
-            let newClub = MKPointAnnotation()
-            newClub.title = club.clubname
-            newClub.subtitle = "\(club.association) (\(club.town))"
-            newClub.coordinate = CLLocationCoordinate2D(latitude: club.lat, longitude: club.lng)
-            self.locations.append(newClub)
-        }
-    }
+    @ObservedObject
+    private var locationManager = LocationManager()
+    
+    // Default to center on the UK, zoom to show the whole island
+    @State private var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 54.4609,
+                                       longitude: -3.0886),
+        span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+    
+    @ObservedObject var store: ClubStore
     
     var body: some View {
         ZStack {
-            MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: $locations)
-                .edgesIgnoringSafeArea(.bottom)
+            Map(coordinateRegion: $region,
+                showsUserLocation: true,
+                annotationItems: store.clubs!) {
+                    club in
+                    MapAnnotation(
+                        coordinate: club.coordinate
+                    ) {
+                        VStack{
+                            Image(systemName: "mappin")
+                                .font(.title)
+                                .foregroundColor(.accentColor)
+                                .onTapGesture {
+                                    let index: Int = store.clubs!.firstIndex(where: {$0.id == club.id})!
+                                    store.clubs![index].show.toggle()
+                                }
+                            if club.show {
+                                ZStack{
+                                    Rectangle()
+                                        .foregroundColor(Color.white)
+                                    VStack{
+                                        Text(club.clubname)
+                                            .padding(.top)
+                                        Text(club.association)
+                                            .padding(.leading)
+                                            .padding(.trailing)
+                                        Text(club.town)
+                                            .padding(.bottom)
+                                    }
+                                }
+                                .onTapGesture {
+                                    let index: Int = store.clubs!.firstIndex(where: {$0.id == club.id})!
+                                    store.clubs![index].show = false
+                                }
+                            }
+                        }
+                    }
+            }
+            .edgesIgnoringSafeArea(.bottom)
         }
         .navigationBarTitle(Text("Map View"), displayMode: .inline)
-        .alert(isPresented: $showingPlaceDetails) {
-            Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information."), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Details")) {
-                selectedClub = (store.clubs?.first(where: { $0.clubname == selectedPlace?.title }))!
-                showingDetailScreen = true
-            })
-        }
-        .sheet(isPresented: $showingDetailScreen, content: {
-            SwiftUIWebView(viewURL: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(selectedClub!.clubId)")!)
-        })
         .navigationBarItems(trailing:
                                 Button(action: {
-                                    if let userLocation = locationFetcher.lastKnownLocation {
-                                        self.centerCoordinate = userLocation
+                                    withAnimation {
+                                        self.region.center = locationManager.current!.coordinate
+                                        self.region.span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
                                     }
                                 })
                                     {Image(systemName: "location")}
         )
-        .onAppear {
-            addClubs()
-            locationFetcher.start()
-        }
     }
 }
 

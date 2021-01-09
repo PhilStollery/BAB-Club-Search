@@ -8,7 +8,7 @@
 // Clud details - like web address and contact details are in https://www.bab.org.uk/clubs/club-search/?ViewClubMapID= <clubId>
 
 import Foundation
-
+import MapKit
 
 /// Object to store the club details to show in views
 struct Club: Identifiable, Hashable {
@@ -41,6 +41,10 @@ struct Club: Identifiable, Hashable {
     var town: String
     var lat: Double
     var lng: Double
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: lat, longitude: lng)
+    }
+    var show = false
 }
 
 let testData = [
