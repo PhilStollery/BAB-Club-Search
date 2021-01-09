@@ -12,9 +12,6 @@ class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     
     @Published
-    var status: CLAuthorizationStatus?
-    
-    @Published
     var current: CLLocation?
 
     override init() {

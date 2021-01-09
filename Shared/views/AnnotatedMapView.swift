@@ -26,25 +26,17 @@ struct AnnotatedMapView: View {
             Map(coordinateRegion: $region,
                 showsUserLocation: true,
                 annotationItems: store.clubs!) {
-                    club in
-                    MapAnnotation(
-                        coordinate: club.coordinate
-                    ) {
+                    club in MapAnnotation( coordinate: club.coordinate) {
                         VStack{
-                            Image(systemName: "mappin")
-                                .font(.title)
-                                .foregroundColor(.accentColor)
-                                .onTapGesture {
-                                    let index: Int = store.clubs!.firstIndex(where: {$0.id == club.id})!
-                                    store.clubs![index].show.toggle()
-                                }
                             if club.show {
                                 ZStack{
-                                    Rectangle()
-                                        .foregroundColor(Color.white)
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .fill(Color(UIColor.systemBackground))
                                     VStack{
-                                        Text(club.clubname)
-                                            .padding(.top)
+                                        NavigationLink(destination: ClubLocationView(club: club)) {
+                                            Text(club.clubname)
+                                        }
+                                            .padding()
                                         Text(club.association)
                                             .padding(.leading)
                                             .padding(.trailing)
@@ -52,12 +44,22 @@ struct AnnotatedMapView: View {
                                             .padding(.bottom)
                                     }
                                 }
+                                .shadow(radius: 2, x: 0, y: 2)
                                 .onTapGesture {
                                     let index: Int = store.clubs!.firstIndex(where: {$0.id == club.id})!
                                     store.clubs![index].show = false
                                 }
+                            } else {
+                                Image(systemName: "house.circle")
+                                    .font(.title)
+                                    .foregroundColor(.accentColor)
+                                    .onTapGesture {
+                                        let index: Int = store.clubs!.firstIndex(where: {$0.id == club.id})!
+                                        store.clubs![index].show = true
+                                    }
                             }
                         }
+                        
                     }
             }
             .edgesIgnoringSafeArea(.bottom)
