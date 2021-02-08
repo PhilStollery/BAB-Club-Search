@@ -10,7 +10,7 @@ import SwiftlySearch
 
 struct ContentView: View {
     
-    @ObservedObject var store = ClubStore()
+    @EnvironmentObject var store: ClubStore
     @State private var downloadAmount = 0.0
     @State private var searchText = ""
 
@@ -37,7 +37,7 @@ struct ContentView: View {
                     .navigationTitle("Dojos")
                     .navigationBarItems(
                         leading: NavigationLink("About", destination: AboutView()),
-                        trailing: NavigationLink("Map View", destination: AnnotatedMapView(store: store))
+                        trailing: NavigationLink("Map View", destination: AnnotatedMapView())
                     )
                     .navigationBarSearch(self.$searchText)
                     
@@ -53,7 +53,7 @@ struct ContentView: View {
                 }
             }
         }.onAppear {
-            self.store.loadXML(urlString: "https://www.bab.org.uk/wp-content/plugins/bab-clubs/googlemap/wordpress_clubs_xml.asp?lat=0&lng=0&radius=10&assoc=all&coach=all")
+            store.loadXML(urlString: "https://www.bab.org.uk/wp-content/plugins/bab-clubs/googlemap/wordpress_clubs_xml.asp?lat=0&lng=0&radius=10&assoc=all&coach=all")
         }
     }
 }
@@ -79,8 +79,8 @@ struct ClubCell: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView(store: ClubStore())
-            ContentView(store: ClubStore())
+            ContentView().environmentObject(ClubStore())
+            ContentView().environmentObject(ClubStore())
                 .preferredColorScheme(.dark)
         }
     }

@@ -1,6 +1,6 @@
 //
 //  ClubLocation.swift
-//  BAB Club Dearch
+//  BAB Club Search
 //
 //  Created by Phil Stollery on 03/07/2020.
 //

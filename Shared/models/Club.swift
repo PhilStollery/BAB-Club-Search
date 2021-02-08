@@ -11,19 +11,32 @@ import Foundation
 import MapKit
 
 /// Object to store the club details to show in views
-struct Club: Identifiable, Hashable {
+class Club: Identifiable, ObservableObject {
     
-    
-    /// Needed to allow hashable
-    /// - Parameters:
-    ///   - lhs: lhs of the comparison
-    ///   - rhs: rhs of the comparison
-    /// - Returns: true if the match
-    static func == (lhs: Club, rhs: Club) -> Bool {
-        return lhs.clubname == rhs.clubname && lhs.association == rhs.association
+    /// properties
+    var id = UUID()
+    var clubId: Int
+    @Published var association: String
+    @Published var clubname: String
+    @Published var town: String
+    var lat: Double
+    var lng: Double
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: lat, longitude: lng)
     }
-    
-    
+    @Published var show: Bool
+
+    /// Initialiser
+    init(clubId: Int, association: String, clubname: String, town: String, lat: Double, lng: Double ) {
+        self.clubId = clubId
+        self.association = association
+        self.clubname = clubname
+        self.town = town
+        self.lat = lat
+        self.lng = lng
+        self.show = false
+    }
+
     /// Overload hasPrefix to allow the search field in the view to filter a list
     /// - Parameter search: string to look for
     /// - Returns: true if the string is in any of the details of a club - ignoreing case
@@ -33,18 +46,6 @@ struct Club: Identifiable, Hashable {
             || town.lowercased().contains(search.lowercased())
     }
     
-    /// properties
-    var id = UUID()
-    var clubId: Int
-    var association: String
-    var clubname: String
-    var town: String
-    var lat: Double
-    var lng: Double
-    var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: lat, longitude: lng)
-    }
-    var show = false
 }
 
 let testData = [

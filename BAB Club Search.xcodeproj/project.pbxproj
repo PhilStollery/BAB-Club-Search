@@ -30,6 +30,7 @@
 		4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = 4A9E68FC24BCA8FC000EA407 /* AEXML */; };
+		4AB9692925CEAB5900313837 /* ClubAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9692825CEAB5900313837 /* ClubAnnotation.swift */; };
 		4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
 		4ABDC05A24C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
 		4ABDC05C24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */; };
@@ -79,6 +80,7 @@
 		4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocationView.swift; sourceTree = "<group>"; };
 		4A88763D24BDCBEB00F331E8 /* clubs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = clubs.xml; sourceTree = "<group>"; };
 		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
+		4AB9692825CEAB5900313837 /* ClubAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAnnotation.swift; sourceTree = "<group>"; };
 		4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlWebView.swift; sourceTree = "<group>"; };
 		4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
 		4ACA7342251BCAC7009ECB5A /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				4A29CB3924BE14470057F878 /* AboutView.swift */,
 				4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */,
+				4AB9692825CEAB5900313837 /* ClubAnnotation.swift */,
 				4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */,
 				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
 				4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */,
@@ -395,6 +398,7 @@
 				4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */,
 				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
 				4ABDC05C24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */,
+				4AB9692925CEAB5900313837 /* ClubAnnotation.swift in Sources */,
 				4ACA7343251BCAC7009ECB5A /* LocationFetcher.swift in Sources */,
 				4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */,
 				4A4C154324C18E23001E4B1D /* AnnotatedMapView.swift in Sources */,

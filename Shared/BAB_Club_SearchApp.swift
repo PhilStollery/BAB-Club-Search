@@ -13,7 +13,7 @@ struct BAB_Club_SearchApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(store: store)
+            ContentView().environmentObject(store)
         }
     }
 }
