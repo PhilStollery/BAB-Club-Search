@@ -40,8 +40,23 @@ struct ClubLocationView: View {
         }
         .navigationTitle(Text(club.clubname))
         .sheet(isPresented: $showingDetailScreen, content: {
-            SwiftUIWebView(viewURL: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(club.clubId)")!)
+            DetailView(clubID: club.clubId)
         })
+    }
+}
+
+struct DetailView: View {
+    @Environment(\.presentationMode) var presentationMode
+    var clubID: Int
+
+    var body: some View {
+        VStack{
+            Button("Close BAB") {
+                presentationMode.wrappedValue.dismiss()
+            }
+            .padding([.top, .leading, .trailing])
+            UrlWebView(urlToDisplay: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(clubID)#example")!)
+        }
     }
 }
 

@@ -37,9 +37,7 @@ struct ClubAnnotation: View {
                     .foregroundColor(.accentColor)
             }
         }
-        .onTapGesture{
-            annotate.show.toggle()
-        }
+        .onTapGesture{ annotate.show.toggle() }
     }
 }
 

@@ -33,8 +33,6 @@
 		4AB9692925CEAB5900313837 /* ClubAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9692825CEAB5900313837 /* ClubAnnotation.swift */; };
 		4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
 		4ABDC05A24C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
-		4ABDC05C24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */; };
-		4ABDC05D24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */; };
 		4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 4ACA6EC524BF3F810078CF84 /* SwiftlySearch */; };
 		4ACA7343251BCAC7009ECB5A /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA7342251BCAC7009ECB5A /* LocationFetcher.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +80,6 @@
 		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
 		4AB9692825CEAB5900313837 /* ClubAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAnnotation.swift; sourceTree = "<group>"; };
 		4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlWebView.swift; sourceTree = "<group>"; };
-		4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
 		4ACA7342251BCAC7009ECB5A /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +136,6 @@
 				4AB9692825CEAB5900313837 /* ClubAnnotation.swift */,
 				4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */,
 				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
-				4ABDC05B24C1FFE6009DB2CE /* SwiftUIWebView.swift */,
 				4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */,
 			);
 			path = views;
@@ -397,7 +393,6 @@
 				4A5C169B24AF99F9006C7564 /* ClubLocationView.swift in Sources */,
 				4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */,
 				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
-				4ABDC05C24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */,
 				4AB9692925CEAB5900313837 /* ClubAnnotation.swift in Sources */,
 				4ACA7343251BCAC7009ECB5A /* LocationFetcher.swift in Sources */,
 				4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */,
@@ -415,7 +410,6 @@
 				4A5C169C24AF99F9006C7564 /* ClubLocationView.swift in Sources */,
 				4A5C168624AF84EA006C7564 /* ContentView.swift in Sources */,
 				4A5C168424AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
-				4ABDC05D24C1FFE6009DB2CE /* SwiftUIWebView.swift in Sources */,
 				4ABDC05A24C1FE09009DB2CE /* UrlWebView.swift in Sources */,
 				4A4C154424C18E23001E4B1D /* AnnotatedMapView.swift in Sources */,
 				4A5C169924AF8845006C7564 /* Club.swift in Sources */,
