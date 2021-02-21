@@ -29,8 +29,11 @@ struct AnnotatedMapView: View {
                     club in MapAnnotation(coordinate: club.coordinate) {
                         Image(systemName: "house.circle")
                             .font(.title)
-                            .foregroundColor(.accentColor)
+                            .foregroundColor(club.show ? .primary : .accentColor)
+                            .animation(.easeInOut)
                             .onTapGesture{
+                                let index: Int = store.clubs.firstIndex(where: {$0.id == club.id})!
+                                self.store.clubs[index].show = true
                                 self.partialSheetManager.showPartialSheet() {
                                     SheetView(club: club)
                                 }
@@ -55,8 +58,8 @@ struct AnnotatedMapView: View {
 
 struct SheetView: View {
     var club: Club
-    @EnvironmentObject var store: ClubStore
     @State private var showingDetailScreen = false
+    @EnvironmentObject var store: ClubStore
 
     var body: some View {
         VStack {
@@ -74,6 +77,11 @@ struct SheetView: View {
                 .padding(.top)
             Text( club.town )
                 .padding(.bottom)
+        }
+        .onDisappear {
+            for index in self.store.clubs.indices {
+                self.store.clubs[index].show = false
+            }
         }
         .frame(height: 50)
         .sheet(isPresented: $showingDetailScreen, content: {
