@@ -21,10 +21,6 @@ struct ClubLocationView: View {
     
     var body: some View {
         VStack {
-            Map(coordinateRegion: $coordinateRegion, annotationItems: [club], annotationContent: { (club) in return MapPin(coordinate: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lng), tint: Color.accentColor) } )
-                .frame(alignment: .center)
-                .shadow(radius: 2)
-            
             Button(action: {showingDetailScreen = true}) {
                 Text("BAB information")
             }
@@ -37,6 +33,10 @@ struct ClubLocationView: View {
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(Color.secondary)
                 .padding(.bottom)
+            Map(coordinateRegion: $coordinateRegion, annotationItems: [club], annotationContent: { (club) in return MapPin(coordinate: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lng), tint: Color.accentColor) } )
+                .frame(alignment: .center)
+                .shadow(radius: 2)
+                .padding()
         }
         .navigationTitle(Text(club.clubname))
         .sheet(isPresented: $showingDetailScreen, content: {

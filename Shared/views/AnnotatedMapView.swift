@@ -7,11 +7,13 @@
 
 import MapKit
 import SwiftUI
+import PartialSheet
 
 struct AnnotatedMapView: View {
     
     @ObservedObject private var locationManager = LocationManager()
     @EnvironmentObject var store: ClubStore
+    @EnvironmentObject var partialSheetManager : PartialSheetManager
     
     // Default to center on the UK, zoom to show the whole island
     @State private var region = MKCoordinateRegion(
@@ -25,10 +27,18 @@ struct AnnotatedMapView: View {
                 showsUserLocation: true,
                 annotationItems: self.store.clubs) {
                     club in MapAnnotation(coordinate: club.coordinate) {
-                        ClubAnnotation(clubIndex: store.clubs.firstIndex(where: {$0.id == club.id})!)
+                        Image(systemName: "house.circle")
+                            .font(.title)
+                            .foregroundColor(.accentColor)
+                            .onTapGesture{
+                                self.partialSheetManager.showPartialSheet() {
+                                    SheetView(club: club)
+                                }
+                            }
                     }
             }
             .edgesIgnoringSafeArea(.bottom)
+            .addPartialSheet(style: .defaultStyle())
         }
         .navigationBarTitle(Text("Map View"), displayMode: .inline)
         .navigationBarItems(trailing:
@@ -40,6 +50,35 @@ struct AnnotatedMapView: View {
                                 })
                                     {Image(systemName: "location")}
         )
+    }
+}
+
+struct SheetView: View {
+    var club: Club
+    @EnvironmentObject var store: ClubStore
+    @State private var showingDetailScreen = false
+
+    var body: some View {
+        VStack {
+            Spacer()
+                .frame(height: 70)
+            Text( club.clubname )
+                .font(.headline)
+
+            Button(action: {showingDetailScreen = true}) {
+                Text("BAB information")
+                    .bold()
+            }
+            
+            Text( club.association )
+                .padding(.top)
+            Text( club.town )
+                .padding(.bottom)
+        }
+        .frame(height: 50)
+        .sheet(isPresented: $showingDetailScreen, content: {
+            DetailView(clubID: club.clubId)
+        })
     }
 }
 

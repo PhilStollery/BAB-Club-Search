@@ -27,10 +27,10 @@
 		4A5C169C24AF99F9006C7564 /* ClubLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */; };
 		4A88763E24BDCBEB00F331E8 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A88763D24BDCBEB00F331E8 /* clubs.xml */; };
 		4A88763F24BDCBEB00F331E8 /* clubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A88763D24BDCBEB00F331E8 /* clubs.xml */; };
+		4A8A030C25E2BBE600914F04 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 4A8A030B25E2BBE600914F04 /* PartialSheet */; };
 		4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9DF81224B078B000AB6EF9 /* ClubStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DF81024B078B000AB6EF9 /* ClubStore.swift */; };
 		4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = 4A9E68FC24BCA8FC000EA407 /* AEXML */; };
-		4AB9692925CEAB5900313837 /* ClubAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9692825CEAB5900313837 /* ClubAnnotation.swift */; };
 		4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
 		4ABDC05A24C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
 		4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 4ACA6EC524BF3F810078CF84 /* SwiftlySearch */; };
@@ -78,7 +78,6 @@
 		4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubLocationView.swift; sourceTree = "<group>"; };
 		4A88763D24BDCBEB00F331E8 /* clubs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = clubs.xml; sourceTree = "<group>"; };
 		4A9DF81024B078B000AB6EF9 /* ClubStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStore.swift; sourceTree = "<group>"; };
-		4AB9692825CEAB5900313837 /* ClubAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAnnotation.swift; sourceTree = "<group>"; };
 		4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlWebView.swift; sourceTree = "<group>"; };
 		4ACA7342251BCAC7009ECB5A /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +89,7 @@
 			files = (
 				4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */,
 				4A579C1D24DD6009006C6A76 /* MapKit.framework in Frameworks */,
+				4A8A030C25E2BBE600914F04 /* PartialSheet in Frameworks */,
 				4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +133,6 @@
 			children = (
 				4A29CB3924BE14470057F878 /* AboutView.swift */,
 				4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */,
-				4AB9692825CEAB5900313837 /* ClubAnnotation.swift */,
 				4A5C169A24AF99F9006C7564 /* ClubLocationView.swift */,
 				4A5C165B24AF84E7006C7564 /* ContentView.swift */,
 				4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */,
@@ -241,6 +240,7 @@
 			packageProductDependencies = (
 				4A9E68FC24BCA8FC000EA407 /* AEXML */,
 				4ACA6EC524BF3F810078CF84 /* SwiftlySearch */,
+				4A8A030B25E2BBE600914F04 /* PartialSheet */,
 			);
 			productName = iOS;
 			productReference = 4A5C166124AF84EA006C7564 /* BAB Club Search.app */;
@@ -336,6 +336,7 @@
 			packageReferences = (
 				4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */,
 				4ACA6EC424BF3F810078CF84 /* XCRemoteSwiftPackageReference "SwiftlySearch" */,
+				4A8A030A25E2BBE600914F04 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 4A5C166224AF84EA006C7564 /* Products */;
 			projectDirPath = "";
@@ -393,7 +394,6 @@
 				4A5C169B24AF99F9006C7564 /* ClubLocationView.swift in Sources */,
 				4A5C168524AF84EA006C7564 /* ContentView.swift in Sources */,
 				4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */,
-				4AB9692925CEAB5900313837 /* ClubAnnotation.swift in Sources */,
 				4ACA7343251BCAC7009ECB5A /* LocationFetcher.swift in Sources */,
 				4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */,
 				4A4C154324C18E23001E4B1D /* AnnotatedMapView.swift in Sources */,
@@ -581,7 +581,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Search";
 				PRODUCT_NAME = "BAB Club Search";
 				SDKROOT = iphoneos;
@@ -608,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Search.iOS";
 				PRODUCT_NAME = "BAB Club Search";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -803,6 +803,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4A8A030A25E2BBE600914F04 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.11;
+			};
+		};
 		4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tadija/AEXML.git";
@@ -822,6 +830,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4A8A030B25E2BBE600914F04 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A8A030A25E2BBE600914F04 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
 		4A9E68FC24BCA8FC000EA407 /* AEXML */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */;
