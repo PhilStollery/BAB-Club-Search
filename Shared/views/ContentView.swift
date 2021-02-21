@@ -22,7 +22,7 @@ struct ContentView: View {
                     List{
                         HStack {
                             Spacer()
-                            Text("\(store.clubs!.filter{$0.hasPrefix(search: searchText) || searchText == ""}.count) clubs")
+                            Text("\(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}.count) clubs")
                                 .font(.subheadline)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
@@ -30,7 +30,7 @@ struct ContentView: View {
                             Spacer()
                         }
                         
-                        ForEach(store.clubs!.filter{$0.hasPrefix(search: searchText) || searchText == ""}, id: \.id) { club in
+                        ForEach(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}, id: \.id) { club in
                             ClubCell(club: club)
                         }
                     }

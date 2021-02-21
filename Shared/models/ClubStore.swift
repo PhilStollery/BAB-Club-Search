@@ -10,7 +10,7 @@ import AEXML
 
 /// Store all the loaded clubs
 class ClubStore: ObservableObject {
-    @Published var clubs: [Club]? = nil
+    @Published var clubs = [Club]()
     @Published var dataLoaded = false
 }
 

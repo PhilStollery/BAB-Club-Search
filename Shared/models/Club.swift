@@ -11,31 +11,20 @@ import Foundation
 import MapKit
 
 /// Object to store the club details to show in views
-class Club: Identifiable, ObservableObject {
-    
+struct Club: Identifiable, Hashable {
+
     /// properties
     var id = UUID()
     var clubId: Int
-    @Published var association: String
-    @Published var clubname: String
-    @Published var town: String
+    var association: String
+    var clubname: String
+    var town: String
     var lat: Double
     var lng: Double
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: lat, longitude: lng)
     }
-    @Published var show: Bool
-
-    /// Initialiser
-    init(clubId: Int, association: String, clubname: String, town: String, lat: Double, lng: Double ) {
-        self.clubId = clubId
-        self.association = association
-        self.clubname = clubname
-        self.town = town
-        self.lat = lat
-        self.lng = lng
-        self.show = false
-    }
+    var show: Bool = false
 
     /// Overload hasPrefix to allow the search field in the view to filter a list
     /// - Parameter search: string to look for
@@ -49,9 +38,9 @@ class Club: Identifiable, ObservableObject {
 }
 
 let testData = [
-    Club(clubId: 1, association: "Go Shin Kai", clubname: "Aikido Kami", town: "Bourton on the Water", lat: 51.885414, lng: -1.759105),
-    Club(clubId: 2, association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Bridport", town: "Bridport", lat: 50.72583, lng: -2.763421),
-    Club(clubId: 3, association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Bristol", town: "Bristol", lat: 51.52946, lng: -2.563554),
-    Club(clubId: 4, association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Kendal", town: "Kendal", lat: 54.338791, lng: -2.73551),
-    Club(clubId: 5, association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Swindon", town: "Swindon", lat: 51.546513, lng: -1.773501)
+    Club(clubId: 822, association: "Go Shin Kai", clubname: "Aikido Kami", town: "Bourton on the Water", lat: 51.885414, lng: -1.759105),
+    Club(clubId: 38, association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Bridport", town: "Bridport", lat: 50.72583, lng: -2.763421),
+    Club(clubId: 39, association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Bristol", town: "Bristol", lat: 51.52946, lng: -2.563554),
+    Club(clubId: 30, association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Kendal", town: "Kendal", lat: 54.338791, lng: -2.73551),
+    Club(clubId: 31, association: "KSMBDA Kolesnikov School", clubname: "KSMBDA Swindon", town: "Swindon", lat: 51.546513, lng: -1.773501)
 ]

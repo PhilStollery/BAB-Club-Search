@@ -23,9 +23,9 @@ struct AnnotatedMapView: View {
         ZStack {
             Map(coordinateRegion: $region,
                 showsUserLocation: true,
-                annotationItems: store.clubs!) {
+                annotationItems: self.store.clubs) {
                     club in MapAnnotation(coordinate: club.coordinate) {
-                        ClubAnnotation(annotate: club)
+                        ClubAnnotation(clubIndex: store.clubs.firstIndex(where: {$0.id == club.id})!)
                     }
             }
             .edgesIgnoringSafeArea(.bottom)

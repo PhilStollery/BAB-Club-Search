@@ -64,10 +64,7 @@ struct ClubLocation_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                ClubLocationView(club: testData[2])
-            }
-            NavigationView {
-                ClubLocationView(club: testData[2])
+                ClubLocationView(club: testData[3])
             }.preferredColorScheme(.dark)
         }
     }
