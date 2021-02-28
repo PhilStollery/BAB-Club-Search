@@ -21,10 +21,20 @@ struct ClubLocationView: View {
     
     var body: some View {
         VStack {
+            Spacer(minLength: 30)
             Button(action: {showingDetailScreen = true}) {
-                Text("BAB information")
+                HStack {
+                    Text("BAB information")
+                    Image(systemName: "arrowshape.turn.up.right.fill")
+                }
             }
-            .padding([.top, .leading, .trailing])
+            .padding(8)
+            .background(
+                RoundedRectangle(
+                    cornerRadius: 8,
+                    style: .continuous
+                ).stroke(Color.accentColor)
+            )
             Text(club.association)
                 .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
                 .foregroundColor(Color.secondary)
@@ -35,10 +45,11 @@ struct ClubLocationView: View {
                 .padding(.bottom)
             Map(coordinateRegion: $coordinateRegion, annotationItems: [club], annotationContent: { (club) in return MapPin(coordinate: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lng), tint: Color.accentColor) } )
                 .frame(alignment: .center)
-                .shadow(radius: 2)
+                .shadow(radius: 4, x: 2, y: 2)
                 .padding()
         }
         .navigationTitle(Text(club.clubname))
+        .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showingDetailScreen, content: {
             DetailView(clubID: club.clubId)
         })
@@ -51,8 +62,11 @@ struct DetailView: View {
 
     var body: some View {
         VStack{
-            Button("Close BAB") {
-                presentationMode.wrappedValue.dismiss()
+            Button(action: {presentationMode.wrappedValue.dismiss()}) {
+                HStack {
+                    Text("Close BAB")
+                    Image(systemName: "chevron.down")
+                }
             }
             .padding([.top, .leading, .trailing])
             UrlWebView(urlToDisplay: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(clubID)#example")!)
@@ -66,6 +80,9 @@ struct ClubLocation_Previews: PreviewProvider {
             NavigationView {
                 ClubLocationView(club: testData[3])
             }.preferredColorScheme(.dark)
+            NavigationView {
+                ClubLocationView(club: testData[4])
+            }
         }
     }
 }

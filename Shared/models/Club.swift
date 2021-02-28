@@ -25,6 +25,7 @@ struct Club: Identifiable, Hashable {
         CLLocationCoordinate2D(latitude: lat, longitude: lng)
     }
     var show: Bool = false
+    var fav: Bool = false
 
     /// Overload hasPrefix to allow the search field in the view to filter a list
     /// - Parameter search: string to look for

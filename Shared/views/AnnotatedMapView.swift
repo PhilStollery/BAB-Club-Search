@@ -69,9 +69,18 @@ struct SheetView: View {
                 .font(.headline)
 
             Button(action: {showingDetailScreen = true}) {
-                Text("BAB information")
-                    .bold()
+                HStack {
+                    Text("BAB information")
+                    Image(systemName: "arrowshape.turn.up.right.fill")
+                }
             }
+            .padding(8)
+            .background(
+                RoundedRectangle(
+                    cornerRadius: 8,
+                    style: .continuous
+                ).stroke(Color.accentColor)
+            )
             
             Text( club.association )
                 .padding(.top)
@@ -83,7 +92,7 @@ struct SheetView: View {
                 self.store.clubs[index].show = false
             }
         }
-        .frame(height: 50)
+        .frame(height: 80)
         .sheet(isPresented: $showingDetailScreen, content: {
             DetailView(clubID: club.clubId)
         })
@@ -94,6 +103,7 @@ struct AnnotatedMapView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             AnnotatedMapView().environmentObject(ClubStore())
+                .environmentObject(PartialSheetManager())
         }
     }
 }

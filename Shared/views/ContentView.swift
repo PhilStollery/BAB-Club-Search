@@ -13,6 +13,7 @@ struct ContentView: View {
     @EnvironmentObject var store: ClubStore
     @State private var downloadAmount = 0.0
     @State private var searchText = ""
+    @State private var showingSettingsScreen = false
 
     var body: some View {
         Group {
@@ -35,16 +36,32 @@ struct ContentView: View {
                         }
                     }
                     .navigationTitle("Dojos")
-                    .navigationBarItems(
-                        leading: NavigationLink("About", destination: AboutView()),
-                        trailing: NavigationLink("Map View", destination: AnnotatedMapView())
-                    )
-                    .navigationBarSearch(self.$searchText)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            NavigationLink("About", destination: AboutView())
+                        }
+                        
+                        ToolbarItem(placement: .principal) {
+                            Button(action: {showingSettingsScreen = true}) {
+                                Image(systemName: "gearshape")
+                                    .imageScale(.large)
+                            }
+                        }
+                            
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink("Map View", destination: AnnotatedMapView())
+                        }
+                        
+                    }
+                    .navigationBarSearch(self.$searchText, placeholder: "Filter the clubs")
                     
                     Text("Choose a Dojo or view them all on a map.")
                         .font(.title)
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
+                .sheet(isPresented: $showingSettingsScreen, content: {
+                    SettingsView()
+                })
             } else {
                 VStack {
                     ProgressView("Loading data from the BAB")
