@@ -29,7 +29,7 @@ struct AnnotatedMapView: View {
                     club in MapAnnotation(coordinate: club.coordinate) {
                         Image(systemName: "house.circle")
                             .font(.title)
-                            .foregroundColor(club.show ? .primary : .accentColor)
+                            .foregroundColor(club.show ? Color.primary : club.fav ? Color.yellow : Color.accentColor)
                             .animation(.easeInOut)
                             .onTapGesture{
                                 let index: Int = store.clubs.firstIndex(where: {$0.id == club.id})!
@@ -60,6 +60,10 @@ struct SheetView: View {
     var club: Club
     @State private var showingDetailScreen = false
     @EnvironmentObject var store: ClubStore
+    
+    var clubIndex: Int {
+        store.clubs.firstIndex(where: { $0.id == club.id })!
+    }
 
     var body: some View {
         VStack {
@@ -81,11 +85,18 @@ struct SheetView: View {
                     style: .continuous
                 ).stroke(Color.accentColor)
             )
-            
-            Text( club.association )
-                .padding(.top)
-            Text( club.town )
-                .padding(.bottom)
+            HStack {
+                Spacer()
+                VStack {
+                    Text( club.association )
+                        .padding(.top)
+                    Text( club.town )
+                        .padding(.bottom)
+                }
+                Spacer()
+                FavoriteButton(isSet: $store.clubs[clubIndex].fav, clubID: club.clubId)
+                Spacer()
+            }
         }
         .onDisappear {
             for index in self.store.clubs.indices {

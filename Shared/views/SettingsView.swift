@@ -9,14 +9,24 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @ObservedObject var userSettings = UserSettings()
+    @EnvironmentObject var userSettings: UserSettings
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("PROFILE")) {
-                    TextField("Username", text: $userSettings.username)
+                Section(header: Text("OPTIONS")) {
+                    Toggle(isOn: $userSettings.highlightFavs) {
+                        Text("Highlight favs")
+                    }
+                    Toggle(isOn: $userSettings.filterOrganisation) {
+                        Text("Only show your organisation")
+                    }
+                    Picker(selection: $userSettings.organisation, label: Text("Organisations")) {
+                        ForEach(userSettings.organisations, id: \.self) { org in
+                            Text(org)
+                        }
+                    }
                 }
             }
             .navigationBarTitle("Settings")

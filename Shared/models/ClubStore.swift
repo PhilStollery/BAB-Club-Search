@@ -41,6 +41,8 @@ extension ClubStore {
         var readStoredData = false
         var content = Data()
         let checkLocation = getDocumentsDirectory().appendingPathComponent("clubs.xml")
+        let appData = UserDefaults.standard
+        let favs: [Int] = appData.object(forKey: "storedFavs") as? [Int] ?? []
         
         // if the phone is in airoplane mode, or there's no network connection
         // need to read a locally cached version of club.xml
@@ -74,11 +76,14 @@ extension ClubStore {
                 
                 // create clubs for each XML node
                 if (child.attributes["lat"]! != "0" && child.attributes["lng"]! != "0") {
+                    let fave: Bool = favs.firstIndex(where: { $0 == Int(child.attributes["Id"]!)!}) != nil
+                    
                     parsedClubs.append(Club(clubId:Int(child.attributes["Id"]!)!,
                       association: child.attributes["association"]!.trimmingCharacters(in: .whitespacesAndNewlines),
                       clubname: child.attributes["clubname"]!.trimmingCharacters(in: .whitespacesAndNewlines),
                       town: child.attributes["clubtown"]!.trimmingCharacters(in: .whitespacesAndNewlines),
-                      lat: Double(child.attributes["lat"]!)!, lng: Double(child.attributes["lng"]!)!))
+                      lat: Double(child.attributes["lat"]!)!, lng: Double(child.attributes["lng"]!)!, fav: fave))
+                    
                 }
             }
             

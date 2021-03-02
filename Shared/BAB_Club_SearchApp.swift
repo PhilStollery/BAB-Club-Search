@@ -11,12 +11,14 @@ import PartialSheet
 @main
 struct BAB_Club_SearchApp: App {
     @StateObject private var store = ClubStore()
+    @StateObject var userSettings = UserSettings()
     let sheetManager: PartialSheetManager = PartialSheetManager()
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(store)
+                .environmentObject(userSettings)
                 .environmentObject(sheetManager)
         }
     }

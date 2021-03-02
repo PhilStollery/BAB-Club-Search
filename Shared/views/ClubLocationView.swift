@@ -12,11 +12,16 @@ struct ClubLocationView: View {
     var club: Club
     @State private var coordinateRegion: MKCoordinateRegion
     @State private var showingDetailScreen = false
+    @EnvironmentObject var store: ClubStore
     
-    init(club: Club) {
-        let getPoisiton = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lng), latitudinalMeters: 1500, longitudinalMeters: 1500)
+    var clubIndex: Int {
+        store.clubs.firstIndex(where: { $0.id == club.id })!
+    }
+    
+    init(passedClub: Club) {
+        let getPoisiton = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: passedClub.lat, longitude: passedClub.lng), latitudinalMeters: 1500, longitudinalMeters: 1500)
         self._coordinateRegion = State(wrappedValue: getPoisiton)
-        self.club = club
+        self.club = passedClub
     }
     
     var body: some View {
@@ -35,14 +40,22 @@ struct ClubLocationView: View {
                     style: .continuous
                 ).stroke(Color.accentColor)
             )
-            Text(club.association)
-                .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
-                .foregroundColor(Color.secondary)
-                .padding(.top)
-            Text(club.town)
-                .font(.system(size: 18, weight: .bold))
-                .foregroundColor(Color.secondary)
-                .padding(.bottom)
+            HStack{
+                Spacer()
+                VStack{
+                    Text(club.association)
+                        .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(Color.secondary)
+                        .padding(.top)
+                    Text(club.town)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(Color.secondary)
+                        .padding(.bottom)
+                }
+                Spacer()
+                FavoriteButton(isSet: $store.clubs[clubIndex].fav, clubID: club.clubId)
+                Spacer()
+            }
             Map(coordinateRegion: $coordinateRegion, annotationItems: [club], annotationContent: { (club) in return MapPin(coordinate: CLLocationCoordinate2D(latitude: club.lat, longitude: club.lng), tint: Color.accentColor) } )
                 .frame(alignment: .center)
                 .shadow(radius: 4, x: 2, y: 2)
@@ -78,10 +91,10 @@ struct ClubLocation_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                ClubLocationView(club: testData[3])
+                ClubLocationView(passedClub: testData[3])
             }.preferredColorScheme(.dark)
             NavigationView {
-                ClubLocationView(club: testData[4])
+                ClubLocationView(passedClub: testData[4])
             }
         }
     }

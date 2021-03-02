@@ -11,9 +11,11 @@ import SwiftlySearch
 struct ContentView: View {
     
     @EnvironmentObject var store: ClubStore
+    @EnvironmentObject var userSettings: UserSettings
     @State private var downloadAmount = 0.0
     @State private var searchText = ""
     @State private var showingSettingsScreen = false
+    @State private var filterFavs = false
 
     var body: some View {
         Group {
@@ -22,37 +24,26 @@ struct ContentView: View {
                 NavigationView {
                     List{
                         HStack {
-                            Spacer()
-                            Text("\(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}.count) clubs")
+                            Text("\(store.clubs.filter{(($0.hasPrefix(search: searchText) || searchText == "") && filterFavs == false) || (filterFavs == true && $0.fav == true )}.count) clubs")
                                 .font(.subheadline)
                                 .fontWeight(.bold)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
                             Spacer()
+                            Toggle("Filter favs", isOn: $filterFavs)
+                                .labelsHidden()
+                                .toggleStyle(SwitchToggleStyle(tint: Color.yellow))
                         }
                         
-                        ForEach(store.clubs.filter{$0.hasPrefix(search: searchText) || searchText == ""}, id: \.id) { club in
+                        ForEach(store.clubs.filter{(($0.hasPrefix(search: searchText) || searchText == "") && filterFavs == false) ||
+                                    ( filterFavs == true && $0.fav == true )}, id: \.id) { club in
                             ClubCell(club: club)
                         }
                     }
                     .navigationTitle("Dojos")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            NavigationLink("About", destination: AboutView())
-                        }
-                        
-                        ToolbarItem(placement: .principal) {
-                            Button(action: {showingSettingsScreen = true}) {
-                                Image(systemName: "gearshape")
-                                    .imageScale(.large)
-                            }
-                        }
-                            
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink("Map View", destination: AnnotatedMapView())
-                        }
-                        
-                    }
+                    .navigationBarItems(
+                        leading: NavigationLink("About", destination: AboutView()),
+                        trailing: NavigationLink("Map View", destination: AnnotatedMapView()))
                     .navigationBarSearch(self.$searchText, placeholder: "Filter the clubs")
                     
                     Text("Choose a Dojo or view them all on a map.")
@@ -79,15 +70,22 @@ struct ClubCell: View {
     var club: Club
     
     var body: some View {
-        NavigationLink(destination: ClubLocationView(club: club)) {
-            VStack(alignment: .leading) {
-                Text(club.clubname)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Text(club.town)
-                    .foregroundColor(.accentColor)
-                Text(club.association)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+        NavigationLink(destination: ClubLocationView(passedClub: club)) {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(club.clubname)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Text(club.town)
+                        .foregroundColor(.accentColor)
+                    Text(club.association)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+                if (club.fav) {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(Color.yellow)
+                }
             }
         }
     }
