@@ -15,6 +15,7 @@ struct AnnotatedMapView: View {
     @EnvironmentObject var store: ClubStore
     @EnvironmentObject var partialSheetManager : PartialSheetManager
     @State private var showingSheet = false
+    @State private var feedback = UISelectionFeedbackGenerator()
     
     // Default to center on the UK, zoom to show the whole island
     @State private var region = MKCoordinateRegion(
@@ -31,7 +32,6 @@ struct AnnotatedMapView: View {
                     Image(systemName: "house.circle")
                         .font(.title)
                         .foregroundColor(club.show ? Color.primary : club.fav ? Color.yellow : Color.accentColor)
-                        .animation(.easeInOut)
                         .onTapGesture{
                             let index: Int = store.clubs.firstIndex(where: {$0.id == club.id})!
                             self.store.clubs[index].show = true
@@ -44,6 +44,9 @@ struct AnnotatedMapView: View {
             }
                 .edgesIgnoringSafeArea(.bottom)
                 .addPartialSheet(style: .defaultStyle())
+        }
+        .onAppear {
+            self.feedback.selectionChanged()
         }
         .navigationBarTitle(Text("Map View"), displayMode: .inline)
         .navigationBarItems(trailing:
@@ -62,6 +65,7 @@ struct SheetView: View {
     var club: Club
     @State private var showingDetailScreen = false
     @EnvironmentObject var store: ClubStore
+    @State private var feedback = UISelectionFeedbackGenerator()
     
     var clubIndex: Int {
         store.clubs.firstIndex(where: { $0.id == club.id })!
@@ -97,6 +101,9 @@ struct SheetView: View {
                 FavoriteButton(isSet: $store.clubs[clubIndex].fav, clubID: club.clubId)
                 Spacer()
             }
+        }
+        .onAppear {
+            self.feedback.selectionChanged()
         }
         .onDisappear {
             for index in self.store.clubs.indices {

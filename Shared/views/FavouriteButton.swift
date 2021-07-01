@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FavoriteButton: View {
     @Binding var isSet: Bool
+    @State private var impactMed = UIImpactFeedbackGenerator(style: .heavy)
+    
     var clubID: Int
     let appData = UserDefaults.standard
     
@@ -24,6 +26,7 @@ struct FavoriteButton: View {
                 }
             }
             appData.set(favs, forKey: "storedFavs")
+            self.impactMed.impactOccurred()
         }) {
             Image(systemName: isSet ? "star.fill" : "star")
                 .foregroundColor(isSet ? Color.yellow : Color.gray)

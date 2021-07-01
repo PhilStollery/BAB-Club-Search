@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var searchText = ""
     @State private var showingSettingsScreen = false
     @State private var filterFavs = false
+    @State private var impactMed = UIImpactFeedbackGenerator(style: .heavy)
+    @State private var feedback = UISelectionFeedbackGenerator()
 
     var body: some View {
         Group {
@@ -44,11 +46,15 @@ struct ContentView: View {
                                             store.clubs.firstIndex(where: { $0.id == club.id })!
                                         }
                                         store.clubs[clubIndex].fav.toggle()
+                                        self.impactMed.impactOccurred()
                                     }){
                                         Image(systemName: club.fav == true ? "star" : "star.fill")
                                     }.tint(Color.yellow)
                                 }
                         }
+                    }
+                    .onAppear {
+                        self.feedback.selectionChanged()
                     }
                     .refreshable {
                         store.loadXML()

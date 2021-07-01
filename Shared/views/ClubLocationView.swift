@@ -13,6 +13,7 @@ struct ClubLocationView: View {
     @State private var coordinateRegion: MKCoordinateRegion
     @State private var showingDetailScreen = false
     @EnvironmentObject var store: ClubStore
+    @State private var feedback = UISelectionFeedbackGenerator()
     
     var clubIndex: Int {
         store.clubs.firstIndex(where: { $0.id == club.id })!
@@ -66,11 +67,15 @@ struct ClubLocationView: View {
         .sheet(isPresented: $showingDetailScreen, content: {
             DetailView(clubID: club.clubId)
         })
+        .onAppear {
+            self.feedback.selectionChanged()
+        }
     }
 }
 
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var feedback = UISelectionFeedbackGenerator()
     var clubID: Int
 
     var body: some View {
@@ -83,6 +88,9 @@ struct DetailView: View {
             }
             .padding([.top, .leading, .trailing])
             UrlWebView(urlToDisplay: URL(string: "https://www.bab.org.uk/clubs/club-search/?ViewClubMapID=\(clubID)#example")!)
+        }
+        .onAppear {
+            self.feedback.selectionChanged()
         }
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AboutView: View {
+    @State private var feedback = UISelectionFeedbackGenerator()
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack{
@@ -55,6 +57,9 @@ struct AboutView: View {
                 Spacer()
             }
             .navigationBarTitle(Text("About"), displayMode: .inline)
+        }
+        .onAppear {
+            self.feedback.selectionChanged()
         }
     }
 }
