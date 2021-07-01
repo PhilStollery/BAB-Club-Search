@@ -39,7 +39,6 @@
 		4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = 4A9E68FC24BCA8FC000EA407 /* AEXML */; };
 		4ABDC05924C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
 		4ABDC05A24C1FE09009DB2CE /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDC05824C1FE09009DB2CE /* UrlWebView.swift */; };
-		4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 4ACA6EC524BF3F810078CF84 /* SwiftlySearch */; };
 		4ACA7343251BCAC7009ECB5A /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA7342251BCAC7009ECB5A /* LocationFetcher.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +98,6 @@
 				4A9E68FD24BCA8FC000EA407 /* AEXML in Frameworks */,
 				4A579C1D24DD6009006C6A76 /* MapKit.framework in Frameworks */,
 				4A8A030C25E2BBE600914F04 /* PartialSheet in Frameworks */,
-				4ACA6EC624BF3F810078CF84 /* SwiftlySearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +249,6 @@
 			name = iOS;
 			packageProductDependencies = (
 				4A9E68FC24BCA8FC000EA407 /* AEXML */,
-				4ACA6EC524BF3F810078CF84 /* SwiftlySearch */,
 				4A8A030B25E2BBE600914F04 /* PartialSheet */,
 			);
 			productName = iOS;
@@ -347,7 +344,6 @@
 			mainGroup = 4A5C165424AF84E7006C7564;
 			packageReferences = (
 				4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */,
-				4ACA6EC424BF3F810078CF84 /* XCRemoteSwiftPackageReference "SwiftlySearch" */,
 				4A8A030A25E2BBE600914F04 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 4A5C166224AF84EA006C7564 /* Products */;
@@ -519,7 +515,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -574,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -837,14 +833,6 @@
 				minimumVersion = 4.5.0;
 			};
 		};
-		4ACA6EC424BF3F810078CF84 /* XCRemoteSwiftPackageReference "SwiftlySearch" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/thislooksfun/SwiftlySearch.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -857,11 +845,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A9E68FB24BCA8FC000EA407 /* XCRemoteSwiftPackageReference "AEXML" */;
 			productName = AEXML;
-		};
-		4ACA6EC524BF3F810078CF84 /* SwiftlySearch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4ACA6EC424BF3F810078CF84 /* XCRemoteSwiftPackageReference "SwiftlySearch" */;
-			productName = SwiftlySearch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

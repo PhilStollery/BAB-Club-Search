@@ -18,8 +18,8 @@ extension ClubStore {
     
     /// Let views request for the data to be loaded
     /// - Parameter urlString: The URL to get the club data from, guess it could be in settings
-    func loadXML(urlString: String) {
-        let url = URL(string: urlString)!
+    func loadXML() {
+        let url = URL(string: "https://www.bab.org.uk/wp-content/plugins/bab-clubs/googlemap/wordpress_clubs_xml.asp?lat=0&lng=0&radius=10&assoc=all&coach=all")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request, completionHandler: parseXMLData)

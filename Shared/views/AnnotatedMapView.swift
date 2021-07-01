@@ -14,6 +14,7 @@ struct AnnotatedMapView: View {
     @ObservedObject private var locationManager = LocationManager()
     @EnvironmentObject var store: ClubStore
     @EnvironmentObject var partialSheetManager : PartialSheetManager
+    @State private var showingSheet = false
     
     // Default to center on the UK, zoom to show the whole island
     @State private var region = MKCoordinateRegion(
@@ -26,32 +27,33 @@ struct AnnotatedMapView: View {
             Map(coordinateRegion: $region,
                 showsUserLocation: true,
                 annotationItems: self.store.clubs) {
-                    club in MapAnnotation(coordinate: club.coordinate) {
-                        Image(systemName: "house.circle")
-                            .font(.title)
-                            .foregroundColor(club.show ? Color.primary : club.fav ? Color.yellow : Color.accentColor)
-                            .animation(.easeInOut)
-                            .onTapGesture{
-                                let index: Int = store.clubs.firstIndex(where: {$0.id == club.id})!
-                                self.store.clubs[index].show = true
-                                self.partialSheetManager.showPartialSheet() {
-                                    SheetView(club: club)
-                                }
+                club in MapAnnotation(coordinate: club.coordinate) {
+                    Image(systemName: "house.circle")
+                        .font(.title)
+                        .foregroundColor(club.show ? Color.primary : club.fav ? Color.yellow : Color.accentColor)
+                        .animation(.easeInOut)
+                        .onTapGesture{
+                            let index: Int = store.clubs.firstIndex(where: {$0.id == club.id})!
+                            self.store.clubs[index].show = true
+                            showingSheet = true
+                            self.partialSheetManager.showPartialSheet() {
+                                SheetView(club: club)
                             }
-                    }
+                        }
+                }
             }
-            .edgesIgnoringSafeArea(.bottom)
-            .addPartialSheet(style: .defaultStyle())
+                .edgesIgnoringSafeArea(.bottom)
+                .addPartialSheet(style: .defaultStyle())
         }
         .navigationBarTitle(Text("Map View"), displayMode: .inline)
         .navigationBarItems(trailing:
                                 Button(action: {
-                                    withAnimation {
-                                        region.center = locationManager.current!.coordinate
-                                        region.span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-                                    }
-                                })
-                                    {Image(systemName: "location")}
+            withAnimation {
+                region.center = locationManager.current!.coordinate
+                region.span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+            }
+        })
+                            {Image(systemName: "location")}
         )
     }
 }
@@ -64,14 +66,12 @@ struct SheetView: View {
     var clubIndex: Int {
         store.clubs.firstIndex(where: { $0.id == club.id })!
     }
-
+    
     var body: some View {
         VStack {
-            Spacer()
-                .frame(height: 70)
             Text( club.clubname )
                 .font(.headline)
-
+            
             Button(action: {showingDetailScreen = true}) {
                 HStack {
                     Text("BAB information")
@@ -103,7 +103,6 @@ struct SheetView: View {
                 self.store.clubs[index].show = false
             }
         }
-        .frame(height: 80)
         .sheet(isPresented: $showingDetailScreen, content: {
             DetailView(clubID: club.clubId)
         })

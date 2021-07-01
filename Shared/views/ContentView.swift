@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import SwiftlySearch
 
+@available(iOS 15.0, *)
 struct ContentView: View {
     
     @EnvironmentObject var store: ClubStore
@@ -38,13 +38,27 @@ struct ContentView: View {
                         ForEach(store.clubs.filter{(($0.hasPrefix(search: searchText) || searchText == "") && filterFavs == false) ||
                                     ( filterFavs == true && $0.fav == true )}, id: \.id) { club in
                             ClubCell(club: club)
+                                .swipeActions(edge: .leading) {
+                                    Button(action:{
+                                        var clubIndex: Int {
+                                            store.clubs.firstIndex(where: { $0.id == club.id })!
+                                        }
+                                        store.clubs[clubIndex].fav.toggle()
+                                    }){
+                                        Image(systemName: club.fav == true ? "star" : "star.fill")
+                                    }.tint(Color.yellow)
+                                }
                         }
                     }
+                    .refreshable {
+                        store.loadXML()
+                    }
+                    .listStyle(PlainListStyle())
                     .navigationTitle("Dojos")
                     .navigationBarItems(
                         leading: NavigationLink("About", destination: AboutView()),
                         trailing: NavigationLink("Map View", destination: AnnotatedMapView()))
-                    .navigationBarSearch(self.$searchText, placeholder: "Filter the clubs")
+                    .searchable(text: $searchText, prompt: "Search for your dojo")
                     
                     Text("Choose a Dojo or view them all on a map.")
                         .font(.title)
@@ -61,7 +75,7 @@ struct ContentView: View {
                 }
             }
         }.onAppear {
-            store.loadXML(urlString: "https://www.bab.org.uk/wp-content/plugins/bab-clubs/googlemap/wordpress_clubs_xml.asp?lat=0&lng=0&radius=10&assoc=all&coach=all")
+            store.loadXML()
         }
     }
 }
@@ -91,6 +105,7 @@ struct ClubCell: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {

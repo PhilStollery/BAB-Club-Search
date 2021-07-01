@@ -8,6 +8,7 @@
 import SwiftUI
 import PartialSheet
 
+@available(iOS 15.0, *)
 @main
 struct BAB_Club_SearchApp: App {
     @StateObject private var store = ClubStore()
