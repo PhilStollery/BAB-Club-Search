@@ -9,22 +9,34 @@ import Foundation
 import AEXML
 
 /// Store all the loaded clubs
+@MainActor
 class ClubStore: ObservableObject {
     @Published var clubs = [Club]()
     @Published var dataLoaded = false
-}
-
-extension ClubStore {
     
-    /// Let views request for the data to be loaded
-    /// - Parameter urlString: The URL to get the club data from, guess it could be in settings
-    func loadXML() {
-        let url = URL(string: "https://www.bab.org.uk/wp-content/plugins/bab-clubs/googlemap/wordpress_clubs_xml.asp?lat=0&lng=0&radius=10&assoc=all&coach=all")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        let task = URLSession.shared.dataTask(with: request, completionHandler: parseXMLData)
-        // go get the data
-        task.resume()
+    enum ParsingError: Error {
+        case badResponse
+        case badXML
+    }
+    
+    // Updates the apps stored Aikido clubs from the BAB website
+    func updateClubs() async {
+        self.dataLoaded = false
+        do {
+            let updates = try await fetchClubs()
+            clubs = updates
+            self.dataLoaded = true
+        } catch {
+            clubs = []
+        }
+    }
+    
+    func fetchClubs() async throws -> [Club] {
+        let requestUrl = URL(string:"https://www.bab.org.uk/wp-content/plugins/bab-clubs/googlemap/wordpress_clubs_xml.asp?lat=0&lng=0&radius=10&assoc=all&coach=all")
+        let (xmlClubs, response) = try await URLSession.shared.data(from: requestUrl!)
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw ParsingError.badResponse }
+        guard let results = await parseXMLData(data: xmlClubs) else { throw ParsingError.badXML }
+        return results
     }
     
     func getDocumentsDirectory() -> URL {
@@ -32,33 +44,17 @@ extension ClubStore {
         return paths[0]
     }
     
-    /// Delegate for the URLSession
-    /// - Parameters:
-    ///   - data: data returned from the API
-    ///   - urlResponse: HTTP reposnse code
-    ///   - error: error details from iOS
-    func parseXMLData(data: Data?, urlResponse: URLResponse?, error: Error?) {
-        var readStoredData = false
+    func parseXMLData(data: Data?) async -> [Club]? {
         var content = Data()
         let checkLocation = getDocumentsDirectory().appendingPathComponent("clubs.xml")
         let appData = UserDefaults.standard
         let favs: [Int] = appData.object(forKey: "storedFavs") as? [Int] ?? []
         
-        // if the phone is in airoplane mode, or there's no network connection
-        // need to read a locally cached version of club.xml
-        if error != nil {
-            print("Error trying to call API: \(error!)")
-            readStoredData = true
-        } else if data == nil {
-            print("Error no data returned from API")
-            readStoredData = true
-        } else {
-            // let's assume we got good data
+        // read the cached version if fetching the XML data failed
+        if data != nil {
             content = data!
         }
-        
-        // read the cached version
-        if readStoredData {
+        else {
             content = try! Data(contentsOf: checkLocation)
         }
         
@@ -83,26 +79,12 @@ extension ClubStore {
                       clubname: child.attributes["clubname"]!.trimmingCharacters(in: .whitespacesAndNewlines),
                       town: child.attributes["clubtown"]!.trimmingCharacters(in: .whitespacesAndNewlines),
                       lat: Double(child.attributes["lat"]!)!, lng: Double(child.attributes["lng"]!)!, fav: fave))
-                    
                 }
             }
-            
-            //Updating an observed variable can't be done in the background, so send to main
-            DispatchQueue.main.async {
-                self.clubs = parsedClubs
-                self.dataLoaded = true
-                
-                // succesfully read the API so save the retrieved data over clubs.xml
-                if !readStoredData {
-                    do {
-                        try content.write(to: checkLocation)
-                    } catch {
-                        print("Failed updating local cache or clubs.xml, Error: " + error.localizedDescription)
-                    }
-                }
-            }
+            return parsedClubs
         } catch {
             print("Error parsing XML: \(error)")
+            return nil
         }
     }
 
