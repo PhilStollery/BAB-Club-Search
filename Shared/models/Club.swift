@@ -11,7 +11,7 @@ import Foundation
 import MapKit
 
 /// Object to store the club details to show in views
-struct Club: Identifiable, Hashable {
+struct Club {
 
     /// properties
     var id = UUID()
@@ -37,6 +37,9 @@ struct Club: Identifiable, Hashable {
     }
     
 }
+
+extension Club: Codable {}
+extension Club: Identifiable {}
 
 let testData = [
     Club(clubId: 822, association: "Go Shin Kai", clubname: "Aikido Kami", town: "Bourton on the Water", lat: 51.885414, lng: -1.759105),

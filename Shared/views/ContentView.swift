@@ -32,8 +32,8 @@ struct ContentView: View {
                 }
                 
                 ForEach(store.clubs.filter{(($0.hasPrefix(search: searchText) || searchText == "") && filterFavs == false) ||
-                            ( filterFavs == true && $0.fav == true )}, id: \.id) { club in
-                    ClubCell(club: club)
+                            ( filterFavs == true && $0.fav == true )}) {
+                    club in ClubCell(club: club)
                         .swipeActions(edge: .leading) {
                             Button(action:{
                                 let clubIndex = store.clubs.firstIndex(where: { $0.id == club.id })!
@@ -43,6 +43,17 @@ struct ContentView: View {
                                 Image(systemName: club.fav == true ? "star" : "star.fill")
                             }.tint(Color.yellow)
                         }
+                }
+            }
+            .overlay {
+                if !store.dataLoaded {
+                    VStack {
+                        ProgressView()
+                            .padding()
+                        Text("Network connection needed to download dojo information.")
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    }
                 }
             }
             .onAppear {
@@ -57,9 +68,6 @@ struct ContentView: View {
                 leading:NavigationLink("About", destination: AboutView()),
                 trailing: NavigationLink("Map View", destination: AnnotatedMapView()))
             .searchable(text: $searchText, prompt: "Search for your dojo")
-            
-            Text("Choose a Dojo or view them all on a map.")
-                .font(.title)
         }
         .task { await store.updateClubs() }
         .navigationViewStyle(StackNavigationViewStyle())

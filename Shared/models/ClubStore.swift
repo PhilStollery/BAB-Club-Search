@@ -34,8 +34,12 @@ class ClubStore: ObservableObject {
     func fetchClubs() async throws -> [Club] {
         let requestUrl = URL(string:"https://www.bab.org.uk/wp-content/plugins/bab-clubs/googlemap/wordpress_clubs_xml.asp?lat=0&lng=0&radius=10&assoc=all&coach=all")
         let (xmlClubs, response) = try await URLSession.shared.data(from: requestUrl!)
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw ParsingError.badResponse }
-        guard let results = await parseXMLData(data: xmlClubs) else { throw ParsingError.badXML }
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw ParsingError.badResponse
+        }
+        guard let results = await parseXMLData(data: xmlClubs) else {
+            throw ParsingError.badXML
+        }
         return results
     }
     
@@ -80,6 +84,12 @@ class ClubStore: ObservableObject {
                       town: child.attributes["clubtown"]!.trimmingCharacters(in: .whitespacesAndNewlines),
                       lat: Double(child.attributes["lat"]!)!, lng: Double(child.attributes["lng"]!)!, fav: fave))
                 }
+            }
+            // Save cached data for when dojos can't be read from API
+            do {
+                try content.write(to: checkLocation)
+            } catch {
+                print("Failed updating local cache or clubs.xml, Error: " + error.localizedDescription)
             }
             return parsedClubs
         } catch {
