@@ -22,6 +22,8 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Can I know your current location? I'll use this to show Dojos near you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

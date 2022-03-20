@@ -7,12 +7,23 @@
 
 import Foundation
 import AEXML
+import MapKit
 
 /// Store all the loaded clubs
 @MainActor
 class ClubStore: ObservableObject {
     @Published var clubs = [Club]()
     @Published var dataLoaded = false
+    @Published var mapRect = MKMapRect() // box containing all the dojos
+    
+    // Find a rectangle that fits all the dojos inside
+    func fit() {
+        let points = clubs.map(\.coordinate).map(MKMapPoint.init)
+        mapRect = points.reduce(MKMapRect.null) { rect, point in
+            let newRect = MKMapRect(origin: point, size: MKMapSize())
+            return rect.union(newRect)
+        }
+    }
     
     enum ParsingError: Error {
         case badResponse
@@ -25,6 +36,7 @@ class ClubStore: ObservableObject {
         do {
             let updates = try await fetchClubs()
             clubs = updates
+            fit() // now that we've loaded the dojos fit the map rectanlge to it
             self.dataLoaded = true
         } catch {
             clubs = []

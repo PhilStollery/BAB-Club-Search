@@ -8,6 +8,7 @@
 import MapKit
 import SwiftUI
 import PartialSheet
+import Combine
 
 struct AnnotatedMapView: View {
     
@@ -16,17 +17,13 @@ struct AnnotatedMapView: View {
     @EnvironmentObject var partialSheetManager : PartialSheetManager
     @State private var showingSheet = false
     @State private var feedback = UISelectionFeedbackGenerator()
-    
-    // Default to center on the UK, zoom to show the whole island
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 54.4609,
-                                       longitude: -3.0886),
-        span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+    @ObservedObject private var tracker: trackingModel = trackingModel()
     
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $region,
+            Map(mapRect: $store.mapRect,
                 showsUserLocation: true,
+                userTrackingMode: $tracker.userTrackingMode,
                 annotationItems: self.store.clubs) {
                 club in MapAnnotation(coordinate: club.coordinate) {
                     Image(systemName: "house.circle")
@@ -50,14 +47,23 @@ struct AnnotatedMapView: View {
         }
         .navigationBarTitle(Text("Map View"), displayMode: .inline)
         .navigationBarItems(trailing:
-                                Button(action: {
-            withAnimation {
-                region.center = locationManager.current!.coordinate
-                region.span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-            }
+            Button(action: {
+                withAnimation {
+                    tracker.userTrackingMode = tracker.userTrackingMode == .none ? .follow : .none
+                }
         })
-                            {Image(systemName: "location")}
+            {Image(systemName: tracker.userTrackingMode == .follow ? "location.fill" : "location")}
         )
+    }
+}
+
+// possible hack to stop modifying state while the UI is updating
+class trackingModel: ObservableObject {
+    var objectWillChange = ObservableObjectPublisher()
+    var userTrackingMode: MapUserTrackingMode = .none  {
+        willSet {
+            objectWillChange.send()
+        }
     }
 }
 

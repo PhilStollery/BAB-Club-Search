@@ -11,9 +11,13 @@ import PartialSheet
 @available(iOS 15.0, *)
 @main
 struct BAB_Club_SearchApp: App {
-    @StateObject private var store = ClubStore()
+    @StateObject var store: ClubStore
     let sheetManager: PartialSheetManager = PartialSheetManager()
 
+    init() {
+        self._store = StateObject(wrappedValue: ClubStore())
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
