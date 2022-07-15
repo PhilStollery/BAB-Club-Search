@@ -10,22 +10,21 @@ import SwiftUI
 struct FavoriteButton: View {
     @Binding var isSet: Bool
     @State private var impactMed = UIImpactFeedbackGenerator(style: .heavy)
+    @ObservedObject var userSettings = UserSettings()
     
     var clubID: Int
     let appData = UserDefaults.standard
     
     var body: some View {
         Button(action: {
-            var favs: [Int] = appData.object(forKey: "storedFavs") as? [Int] ?? []
             isSet.toggle()
             if (isSet) {
-                favs.append(clubID)
+                userSettings.favs.append(clubID)
             } else {
-                if let indexToRemove = favs.firstIndex(of: clubID) {
-                    favs.remove(at: indexToRemove)
+                if let indexToRemove = userSettings.favs.firstIndex(of: clubID) {
+                    userSettings.favs.remove(at: indexToRemove)
                 }
             }
-            appData.set(favs, forKey: "storedFavs")
             self.impactMed.impactOccurred()
         }) {
             Image(systemName: isSet ? "star.fill" : "star")

@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var filterFavs = false
     @State private var impactMed = UIImpactFeedbackGenerator(style: .heavy)
     @State private var feedback = UISelectionFeedbackGenerator()
+    @ObservedObject var userSettings = UserSettings()
 
     var body: some View {
         NavigationView {
@@ -38,6 +39,13 @@ struct ContentView: View {
                             Button(action:{
                                 let clubIndex = store.clubs.firstIndex(where: { $0.id == club.id })!
                                 store.clubs[clubIndex].fav.toggle()
+                                if (!club.fav) {
+                                    userSettings.favs.append(club.clubId)
+                                } else {
+                                    if let indexToRemove = userSettings.favs.firstIndex(of: club.clubId) {
+                                        userSettings.favs.remove(at: indexToRemove)
+                                    }
+                                }
                                 self.impactMed.impactOccurred()
                             }){
                                 Image(systemName: club.fav == true ? "star" : "star.fill")

@@ -11,7 +11,7 @@ import MapKit
 
 /// Store all the loaded clubs
 @MainActor
-class ClubStore: ObservableObject {
+final class ClubStore: ObservableObject {
     @Published var clubs = [Club]()
     @Published var dataLoaded = false
     @Published var mapRect = MKMapRect() // box containing all the dojos
@@ -63,8 +63,7 @@ class ClubStore: ObservableObject {
     func parseXMLData(data: Data?) async -> [Club]? {
         var content = Data()
         let checkLocation = getDocumentsDirectory().appendingPathComponent("clubs.xml")
-        let appData = UserDefaults.standard
-        let favs: [Int] = appData.object(forKey: "storedFavs") as? [Int] ?? []
+        let userSettings = UserSettings()
         
         // read the cached version if fetching the XML data failed
         if data != nil {
@@ -88,7 +87,7 @@ class ClubStore: ObservableObject {
                 
                 // create clubs for each XML node
                 if (child.attributes["lat"]! != "0" && child.attributes["lng"]! != "0") {
-                    let fave: Bool = favs.firstIndex(where: { $0 == Int(child.attributes["Id"]!)!}) != nil
+                    let fave: Bool = userSettings.favs.firstIndex(where: { $0 == Int(child.attributes["Id"]!)!}) != nil
                     
                     parsedClubs.append(Club(clubId:Int(child.attributes["Id"]!)!,
                       association: child.attributes["association"]!.trimmingCharacters(in: .whitespacesAndNewlines),

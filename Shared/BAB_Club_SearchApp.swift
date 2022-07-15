@@ -23,6 +23,7 @@ struct BAB_Club_SearchApp: App {
             ContentView()
                 .environmentObject(store)
                 .environmentObject(sheetManager)
+
         }
     }
 }

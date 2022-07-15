@@ -10,6 +10,7 @@
 		4A29CB3A24BE14470057F878 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29CB3924BE14470057F878 /* AboutView.swift */; };
 		4A29CB3D24BF1E890057F878 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */; };
 		4A4C154324C18E23001E4B1D /* AnnotatedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */; };
+		4A4C3AE32881C405004CE6CC /* preserveSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C3AE22881C405004CE6CC /* preserveSettings.swift */; };
 		4A579C1D24DD6009006C6A76 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A579C1C24DD6009006C6A76 /* MapKit.framework */; };
 		4A5C167624AF84EA006C7564 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C167524AF84EA006C7564 /* Tests_iOS.swift */; };
 		4A5C168324AF84EA006C7564 /* BAB_Club_SearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */; };
@@ -40,6 +41,7 @@
 		4A29CB3924BE14470057F878 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		4A29CB3C24BF1E890057F878 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A4C154224C18E23001E4B1D /* AnnotatedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatedMapView.swift; sourceTree = "<group>"; };
+		4A4C3AE22881C405004CE6CC /* preserveSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = preserveSettings.swift; sourceTree = "<group>"; };
 		4A579C1C24DD6009006C6A76 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		4A579C1E24DD61F3006C6A76 /* BAB Club SearchRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BAB Club SearchRelease.entitlements"; sourceTree = "<group>"; };
 		4A5C165A24AF84E7006C7564 /* BAB_Club_SearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAB_Club_SearchApp.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				4A5C169724AF8845006C7564 /* Club.swift */,
 				4A9DF81024B078B000AB6EF9 /* ClubStore.swift */,
 				4ACA7342251BCAC7009ECB5A /* LocationFetcher.swift */,
+				4A4C3AE22881C405004CE6CC /* preserveSettings.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				4A4C154324C18E23001E4B1D /* AnnotatedMapView.swift in Sources */,
 				4A5C169824AF8845006C7564 /* Club.swift in Sources */,
 				4A9DF81124B078B000AB6EF9 /* ClubStore.swift in Sources */,
+				4A4C3AE32881C405004CE6CC /* preserveSettings.swift in Sources */,
 				4A77D30F25ED82D300AB51C8 /* FavouriteButton.swift in Sources */,
 				4A29CB3A24BE14470057F878 /* AboutView.swift in Sources */,
 			);
@@ -460,7 +464,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1;
+				MARKETING_VERSION = 4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Search";
 				PRODUCT_NAME = "BAB Club Search";
 				SDKROOT = iphoneos;
@@ -488,7 +492,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1;
+				MARKETING_VERSION = 4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.stollerys.BAB-Club-Search.iOS";
 				PRODUCT_NAME = "BAB Club Search";
 				PROVISIONING_PROFILE_SPECIFIER = "";
